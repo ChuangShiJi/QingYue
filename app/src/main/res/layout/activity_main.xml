@@ -5,9 +5,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_alignParentTop="true"
@@ -15,57 +13,72 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/one_title"
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/one_title"
             />
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/one_more_apply"
+            />
 
-    <FrameLayout
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#fff"
-        />
+        >
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:background="#00f"
-        android:layout_height="wrap_content">
-
-        <RadioGroup
-            android:id="@+id/main_tan_bar"
+        <FrameLayout
+            android:id="@+id/fragment_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <RadioButton
-                android:id="@+id/main_tab_first"
-                style="@style/AppTheme.MainTabItem"
-                android:text="首页"
-                />
-            <RadioButton
-                android:id="@+id/main_tab_article"
-                style="@style/AppTheme.MainTabItem"
-                android:text="文章"
-                />
-            <RadioButton
-                android:id="@+id/main_tab_problem"
-                style="@style/AppTheme.MainTabItem"
-                android:text="问题"
-                />
-            <RadioButton
-                android:id="@+id/main_tab_things"
-                style="@style/AppTheme.MainTabItem"
-                android:text="东西"
-                />
-            <RadioButton
-                android:id="@+id/main_tab_personal"
-                style="@style/AppTheme.MainTabItem"
-                android:text="个人"
-                />
-        </RadioGroup>
-    </FrameLayout>
+            android:layout_height="match_parent"
+            android:background="#fff"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="#00f"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:id="@+id/main_tan_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/main_tab_first"
+                    style="@style/AppTheme.MainTabItem"
+                    android:text="首页"
+                    />
+                <RadioButton
+                    android:id="@+id/main_tab_article"
+                    style="@style/AppTheme.MainTabItem"
+                    android:text="文章"
+                    />
+                <RadioButton
+                    android:id="@+id/main_tab_problem"
+                    style="@style/AppTheme.MainTabItem"
+                    android:text="问题"
+                    />
+                <RadioButton
+                    android:id="@+id/main_tab_things"
+                    style="@style/AppTheme.MainTabItem"
+                    android:text="东西"
+                    />
+                <RadioButton
+                    android:id="@+id/main_tab_personal"
+                    style="@style/AppTheme.MainTabItem"
+                    android:text="个人"
+                    />
+            </RadioGroup>
+        </FrameLayout>
+    </RelativeLayout>
+
 </LinearLayout>
