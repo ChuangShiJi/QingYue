@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    
+    <LinearLayout
+        android:background="#E6E6E6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff0"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="#00f"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/main_tan_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:id="@+id/main_tab_first"
+                style="@style/AppTheme.MainTabItem"
+                android:text="首页"
+                />
+            <RadioButton
+                android:id="@+id/main_tab_article"
+                style="@style/AppTheme.MainTabItem"
+                android:text="文章"
+                />
+            <RadioButton
+                android:id="@+id/main_tab_problem"
+                style="@style/AppTheme.MainTabItem"
+                android:text="问题"
+                />
+            <RadioButton
+                android:id="@+id/main_tab_things"
+                style="@style/AppTheme.MainTabItem"
+                android:text="东西"
+                />
+            <RadioButton
+                android:id="@+id/main_tab_personal"
+                style="@style/AppTheme.MainTabItem"
+                android:text="个人"
+                />
+        </RadioGroup>
+    </FrameLayout>
+</RelativeLayout>
