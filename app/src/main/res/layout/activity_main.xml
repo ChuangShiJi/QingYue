@@ -46,46 +46,32 @@
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:background="#F5F5F5"
-            android:layout_height="wrap_content">
+                    android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/main_tab_item_discover_image"
+                style="@style/AppTheme.MainSelectItem"
+                android:scaleType="fitXY"
+                />
 
-                    <ImageView
-                        android:id="@+id/main_tab_item_discover_image"
-                        android:layout_width="45dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        />
+            <ImageView
+                android:id="@+id/main_tab_item_discover_image"
+                style="@style/AppTheme.MainSelectItem"
+                android:scaleType="fitXY"
+                />
 
+            <ImageView
+                android:id="@+id/main_tab_item_discover_image"
+                style="@style/AppTheme.MainSelectItem"
+                android:scaleType="fitXY"
+                />
 
-                    <ImageView
-                        android:id="@+id/main_tab_item_custom_image"
-                        android:layout_width="45dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/first_btn_selector"
-                        />
-
-
-                    <ImageView
-                        android:id="@+id/main_tab_item_download_image"
-                        android:layout_width="45dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        />
-
-                    <ImageView
-                        android:id="@+id/main_tab_item_personal_image"
-                        android:layout_width="45dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        />
-
+            <ImageView
+                android:id="@+id/main_tab_item_discover_image"
+                style="@style/AppTheme.MainSelectItem"
+                android:scaleType="fitXY"
+                />
         </FrameLayout>
-
     </RelativeLayout>
 
 </LinearLayout>
