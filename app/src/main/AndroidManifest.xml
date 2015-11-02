@@ -22,11 +22,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".WelcomeActivity"
-            android:label="@string/title_activity_welcome" >
-        </activity>
-
 
     </application>
 
