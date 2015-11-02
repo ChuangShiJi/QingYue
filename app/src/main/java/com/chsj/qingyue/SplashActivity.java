@@ -5,8 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.PopupWindow;
 
 
 /**
@@ -18,18 +22,12 @@ public class SplashActivity extends AppCompatActivity implements  Runnable{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
 
         Thread thread = new Thread(this);
 
         thread.start();
-
-        initActivity();
-
-    }
-
-    private void initActivity() {
-        //创建数据：
 
     }
 
@@ -59,12 +57,5 @@ public class SplashActivity extends AppCompatActivity implements  Runnable{
         finish();
 
     }
-
-
-
-
-
-
-
 
 }

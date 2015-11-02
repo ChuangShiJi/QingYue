@@ -6,39 +6,7 @@
     android:layout_height="wrap_content">
 
 
-    <TextView
-        android:id="@+id/splash_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="[轻阅]使用完全免费，在使用过程中会产生移动网络或wlan流量，
-        具体流量资费请咨询您的网络运营商，在使用过程中[轻阅]需要：进行网络通信获取网络状态，
-        WLAN状态。\n\n 为了提供更好的用户体验，[轻阅]将收集用户部分信息，是否同意？\n\n"/>
 
-    <CheckBox
-        android:id="@+id/splash_chexkbox"
-        android:layout_below="@id/splash_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="不再显示提醒"/>
-
-    <TextView
-        android:id="@+id/splash_agree"
-        android:layout_width="wrap_content"
-        android:layout_below="@id/splash_chexkbox"
-        android:layout_alignParentRight="true"
-        android:layout_height="wrap_content"
-        android:textColor="#80B3FF"
-        android:text="同意"/>
-
-    <TextView
-        android:id="@+id/splash_exit"
-        android:layout_toLeftOf="@id/splash_agree"
-        android:layout_alignBaseline="@id/splash_agree"
-        android:layout_marginEnd="40dp"
-        android:textColor="#80B3FF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="同意"/>
 
 
 
