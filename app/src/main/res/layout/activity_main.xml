@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/one_title"
             android:layout_margin="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/one_title"
             />
@@ -23,6 +23,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignRight="@id/one_title"
             android:src="@mipmap/one_more_apply"
             />
 
@@ -33,7 +35,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-
         <FrameLayout
             android:id="@+id/fragment_id"
             android:layout_width="match_parent"
