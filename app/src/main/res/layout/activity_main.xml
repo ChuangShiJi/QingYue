@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_alignRight="@id/one_title"
-            android:src="@mipmap/one_more_apply"
+            android:background="@drawable/tilte_one_share"
             />
 
     </RelativeLayout>
@@ -44,9 +44,10 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:background="#00f"
             android:layout_alignParentBottom="true"
+            android:background="#F5F5F5"
             android:layout_height="wrap_content">
+
             <RadioGroup
                 android:id="@+id/main_tan_bar"
                 android:layout_width="match_parent"
@@ -79,7 +80,9 @@
                     android:text="个人"
                     />
             </RadioGroup>
+
         </FrameLayout>
+
     </RelativeLayout>
 
 </LinearLayout>
