@@ -11,6 +11,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name" >
         </activity>
+
         <activity
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash" >
@@ -20,10 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".WelcomeActivity"
             android:label="@string/title_activity_welcome" >
         </activity>
+
+
     </application>
 
 </manifest>

@@ -48,40 +48,41 @@
             android:background="#F5F5F5"
             android:layout_height="wrap_content">
 
-            <RadioGroup
-                android:id="@+id/main_tan_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
 
-                <RadioButton
-                    android:id="@+id/main_tab_first"
-                    style="@style/AppTheme.MainTabItem"
-                    android:background="@drawable/first_btn_selector"
-                    />
+                    <ImageView
+                        android:id="@+id/main_tab_item_discover_image"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        />
 
-                <RadioButton
-                    android:id="@+id/main_tab_article"
-                    style="@style/AppTheme.MainTabItem"
-                    />
 
-                <RadioButton
-                    android:id="@+id/main_tab_problem"
-                    style="@style/AppTheme.MainTabItem"
-                    />
+                    <ImageView
+                        android:id="@+id/main_tab_item_custom_image"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/first_btn_selector"
+                        />
 
-                <RadioButton
-                    android:id="@+id/main_tab_things"
-                    style="@style/AppTheme.MainTabItem"
-                    />
 
-                <RadioButton
-                    android:id="@+id/main_tab_personal"
-                    style="@style/AppTheme.MainTabItem"
-                    />
+                    <ImageView
+                        android:id="@+id/main_tab_item_download_image"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        />
 
-            </RadioGroup>
+                    <ImageView
+                        android:id="@+id/main_tab_item_personal_image"
+                        android:layout_width="45dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        />
 
         </FrameLayout>
 
