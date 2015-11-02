@@ -54,31 +54,33 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
+
                 <RadioButton
                     android:id="@+id/main_tab_first"
                     style="@style/AppTheme.MainTabItem"
-                    android:text="首页"
+                    android:background="@drawable/first_btn_selector"
                     />
+
                 <RadioButton
                     android:id="@+id/main_tab_article"
                     style="@style/AppTheme.MainTabItem"
-                    android:text="文章"
                     />
+
                 <RadioButton
                     android:id="@+id/main_tab_problem"
                     style="@style/AppTheme.MainTabItem"
-                    android:text="问题"
                     />
+
                 <RadioButton
                     android:id="@+id/main_tab_things"
                     style="@style/AppTheme.MainTabItem"
-                    android:text="东西"
                     />
+
                 <RadioButton
                     android:id="@+id/main_tab_personal"
                     style="@style/AppTheme.MainTabItem"
-                    android:text="个人"
                     />
+
             </RadioGroup>
 
         </FrameLayout>

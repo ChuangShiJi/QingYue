@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <item android:drawable="@mipmap/mobile_one_home_page_button"/>
     <item
-        android:drawable="@mipmap/one_more_apply_press_down"
+        android:drawable="@mipmap/mobile_one_home_page_button"
         android:state_checked="true"
         />
-
-    <item android:drawable="@mipmap/one_more_apply"/>
 
 </selector>

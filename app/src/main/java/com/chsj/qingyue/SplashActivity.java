@@ -21,8 +21,8 @@ public class SplashActivity extends AppCompatActivity implements  Runnable{
         Thread thread = new Thread(this);
 
         thread.start();
-    }
 
+    }
 
     /**
      * 实现Run方法：
@@ -59,5 +59,6 @@ public class SplashActivity extends AppCompatActivity implements  Runnable{
         startActivity(intent);
 
         finish();
+
     }
 }
