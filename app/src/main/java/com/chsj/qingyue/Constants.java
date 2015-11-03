@@ -10,6 +10,6 @@ public class Constants {
 
     public static final String SP_NAME="app";
     //    欢迎页显示的版本，根据版本判断是否显示
-    public static final String SP_KEY_WELCOME_SHOW_VER="wsv";
+    public static final String SP_KEY_IS_AGREE = "agree";
 
 }

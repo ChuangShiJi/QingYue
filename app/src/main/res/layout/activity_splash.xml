@@ -4,17 +4,19 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:id="@+id/splash_container_linear"
     android:background="@mipmap/start_app_bg_icon"
     tools:context="com.chsj.qingyue.SplashActivity">
 
     <FrameLayout
         android:layout_margin="20dp"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:id="@+id/relative_window"
             android:padding="20dp"
+            android:visibility="visible"
             android:layout_width="wrap_content"
             android:background="#fff"
             android:layout_height="wrap_content">
@@ -51,7 +53,7 @@
                 android:textColor="#80B3FF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="同意"/>
+                android:text="退出"/>
 
         </RelativeLayout>
 
