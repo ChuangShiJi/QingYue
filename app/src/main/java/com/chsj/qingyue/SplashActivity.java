@@ -56,7 +56,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private void isShow() {
 
-        if (anInt == 0) { //设置  不显示
+        if (anInt == 1) { //设置  不显示
 
             relative.setVisibility(View.INVISIBLE);
 

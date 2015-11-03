@@ -6,4 +6,5 @@ package com.chsj.qingyue.model;
  * Email:978823884@qq.com
  */
 public class HpEntity {
+
 }
