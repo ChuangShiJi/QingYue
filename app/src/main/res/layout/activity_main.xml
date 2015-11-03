@@ -46,48 +46,43 @@
             android:layout_alignParentBottom="true"
             android:background="#00d">
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_first"
                     style="@style/AppTheme.MainSelectItem"
                     android:background="@drawable/first_btn_selector"
-                    android:clickable="true" />
+                    />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_article"
                     style="@style/AppTheme.MainSelectItem"
                     android:background="@drawable/two_btn_selector"
-                    android:clickable="true"
-                    android:scaleType="fitXY" />
+                    />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_problem"
                     style="@style/AppTheme.MainSelectItem"
                     android:background="@drawable/three_btn_selector"
-                    android:clickable="true"
-                    android:scaleType="fitXY"
-
                     />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_things"
                     style="@style/AppTheme.MainSelectItem"
                     android:background="@drawable/four_btn_selector"
-                    android:clickable="true"
-                    android:scaleType="fitXY" />
+                    />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_personal"
                     style="@style/AppTheme.MainSelectItem"
                     android:background="@drawable/five_btn_selector"
-                    android:clickable="true"
-                    android:scaleType="fitXY" />
+                  />
 
-            </LinearLayout>
+            </RadioGroup>
         </FrameLayout>
     </RelativeLayout>
 </LinearLayout>
