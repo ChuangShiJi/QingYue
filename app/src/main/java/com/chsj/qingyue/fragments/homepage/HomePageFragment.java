@@ -1,4 +1,4 @@
-package com.chsj.qingyue.question;
+package com.chsj.qingyue.fragments.homepage;
 
 
 import android.os.Bundle;
@@ -12,19 +12,17 @@ import com.chsj.qingyue.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class QuestionFragment extends Fragment {
+public class HomePageFragment extends Fragment {
 
 
-    public QuestionFragment() {
-        // Required empty public constructor
+    public HomePageFragment() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false);
+        return inflater.inflate(R.layout.fragment_home_page, container, false);
     }
 
 

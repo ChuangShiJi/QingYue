@@ -1,4 +1,4 @@
-package com.chsj.qingyue.object;
+package com.chsj.qingyue.fragments.object;
 
 
 import android.os.Bundle;

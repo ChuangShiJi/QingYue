@@ -1,4 +1,4 @@
-package com.chsj.qingyue.model;
+package com.chsj.qingyue.fragments.homepage;
 
 /**
  * Author:甄强
