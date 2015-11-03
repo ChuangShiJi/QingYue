@@ -1,0 +1,18 @@
+应用名称：轻阅
+
+介绍：轻松阅读，每天十分钟，体验不一样的阅读体验--轻阅。
+
+包名： com.chsj.qingyue
+
+
+首页接口：http://rest.wufazhuce.com/OneForWeb/one/getHp_N?strDate=null&strRow=1
+	参数 strRow  1-10 可以获取十天内的数据
+
+文章接口：http://rest.wufazhuce.com/OneForWeb/one/getC_N?strDate=null&strRow=1
+	参数 strRow 1-10  同上
+
+问题接口：http://rest.wufazhuce.com/OneForWeb/one/getQ_N?strDate=null&strRow=1
+	参数 strRow 1-10  同上
+
+东西接口：http://rest.wufazhuce.com/OneForWeb/one/o_f?strDate=null&strRow=1
+	参数 strRow 1-10  同上
