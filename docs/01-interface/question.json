@@ -1,12 +1,14 @@
 {
   "questionAdEntity": {
+
     "entQNCmt": {
       "strId": "",
       "strCnt": "",
       "strD": "",
       "pNum": "",
       "upFg": ""
-    },
+       },
+
     "strLastUpdateDate": "2015-11-02 17:23:18",
     "strDayDiffer": "",
     "sWebLk": "http:\/\/m.wufazhuce.com\/question\/2015-11-02",
@@ -15,8 +17,12 @@
     "strQuestionTitle": "为什么有些活得很自我的人也可以在工作社交中如鱼得水？",
     "strQuestionContent": "大闷锅问：很多长辈告诉我，进入职场后社交中不能太过自我，可我后来发现有些活得很自我的人在工作中也很如鱼得水，这是为什么？",
     "strAnswerTitle": "A-M-E-N-G 答大闷锅：",
-    "strAnswerContent": "前不久，一个朋友得意洋洋地对我们一票朋友说....."
-  }
+    "strAnswerContent": "前不久，一个朋友得意洋洋地对我们一票朋友说.....",
+    "strQuestionMarketTime": "2015-11-03",
+    "sEditor": "锛堣矗浠荤紪杈戯細鍗ぉ鎴愶級"
+  },
+
+  "result":"SUCCESS"
 }
 
 
