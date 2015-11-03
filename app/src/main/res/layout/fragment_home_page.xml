@@ -1,13 +1,30 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.chsj.qingyue.fragments.homepage.HomePageFragment">
 
     <android.support.v7.widget.RecyclerView
+
         android:id="@+id/fragment_homepage_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"></android.support.v7.widget.RecyclerView>
 
 
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/fragment_home_page_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9ca7a7a7"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/fragment_home_page_showbig_img"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+</FrameLayout>

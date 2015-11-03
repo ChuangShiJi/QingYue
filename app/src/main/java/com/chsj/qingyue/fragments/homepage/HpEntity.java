@@ -12,6 +12,15 @@ public class HpEntity {
     private String strContent;
     private String strPn;
 
+    public HpEntity() {
+    }
+
+    public HpEntity(String strThumbnaiUrl, String author, String strContent, String strPn) {
+        this.strThumbnaiUrl = strThumbnaiUrl;
+        Author = author;
+        this.strContent = strContent;
+        this.strPn = strPn;
+    }
 
     public String getStrThumbnaiUrl() {
         return strThumbnaiUrl;
@@ -45,5 +54,5 @@ public class HpEntity {
         this.strPn = strPn;
     }
 
-  
+
 }
