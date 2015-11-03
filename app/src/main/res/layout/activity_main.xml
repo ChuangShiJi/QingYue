@@ -8,88 +8,81 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="#E6E6E6"
-        android:layout_height="wrap_content">
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/one_title"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/one_title"
-            />
+            android:layout_margin="10dp"
+            android:src="@mipmap/one_title" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_alignRight="@id/one_title"
-            android:background="@drawable/tilte_one_share"
-            />
+            android:layout_centerInParent="true"
+            android:background="@drawable/tilte_one_share" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
+
         <FrameLayout
             android:id="@+id/fragment_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff"
-            />
+            android:background="#fff" />
 
         <FrameLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#00d"
-            android:layout_height="wrap_content">
+            android:background="#00d">
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_height="match_parent">
+                >
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_first"
                     style="@style/AppTheme.MainSelectItem"
                     android:background="@drawable/first_btn_selector"
                     />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_article"
                     style="@style/AppTheme.MainSelectItem"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/one_title"
+                    android:background="@drawable/two_btn_selector"
                     />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_problem"
                     style="@style/AppTheme.MainSelectItem"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/one_title"
-
+                    android:background="@drawable/three_btn_selector"
                     />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_things"
                     style="@style/AppTheme.MainSelectItem"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/one_title"
+                    android:background="@drawable/four_btn_selector"
                     />
 
-                <ImageView
+                <RadioButton
                     android:id="@+id/main_tab_item_personal"
                     style="@style/AppTheme.MainSelectItem"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/one_title"
-                    />
+                    android:background="@drawable/five_btn_selector"
+                  />
 
-            </LinearLayout>
+            </RadioGroup>
         </FrameLayout>
     </RelativeLayout>
 </LinearLayout>

@@ -22,6 +22,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
     private ArticleFragmentAdapter adapter;
     private List<ArticleFragmentItem> datas;
 
+
     public ArticleFragment() {
         // Required empty public constructor
     }
@@ -74,4 +75,6 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
     public void onPageScrollStateChanged(int state) {
 
     }
+
+
 }

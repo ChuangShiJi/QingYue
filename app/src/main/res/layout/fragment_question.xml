@@ -1,9 +1,160 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.chsj.qingyue.fragments.question.QuestionFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chsj.qingyue.question.QuestionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <RelativeLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
+        <TextView
+            android:id="@+id/question_fragment_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="November 03,2015"/>
+
+        <RelativeLayout
+            android:id="@+id/question_problem"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/question_fragment_date"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/question_title_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/mobile_one_question_page_question_image"
+                />
+            <TextView
+                android:id="@+id/question_fragment_title"
+                android:layout_toRightOf="@id/question_title_img"
+                android:paddingLeft="10dp"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:text="问题的标题"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/question_problem_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question_problem"
+            android:layout_marginTop="10dp"
+            android:textSize="15dp"
+            android:text="问题的描述内容，问题的描述内容问题的描述内
+            容问题的描述内容问题的描述内容问题的描述内容问题的描述内容
+            问题的描述内容问题的描述内容问题的描述内容问题的描述内容问题
+            的描述内容问题的描述内容问题的描述内容问题的描述内容问题的描
+            述内容问题的描述内容问题的描述内容问题的描述内容"
+            />
+
+        <TextView
+            android:id="@+id/question_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#45C8F2"
+            android:layout_below="@id/question_problem_describe"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/question_anwser_content"
+            android:layout_below="@id/question_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/question_answer_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/mobile_one_question_page_answer"
+                />
+            <TextView
+                android:id="@+id/question_answer_title"
+                android:layout_toRightOf="@id/question_answer_img"
+                android:paddingLeft="10dp"
+                android:textSize="18dp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:text="问题的回答"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/question_anwser_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question_anwser_content"
+            android:layout_marginTop="10dp"
+            android:textSize="15dp"
+            android:text="问题的描述内容，问题的描述内容问题的描述内
+            容问题的描述内容问题的描述内容问题的描述内容问题的描述内容
+            问题的描述内容问题的描述内容问题的描述内容问题的描述内容问题
+            的描述内容问题的描述内容问题的描述内容问题的描述内容问题的描
+            述内容问题的描述内容问题的描述内容问容\n"
+            />
+
+        <TextView
+            android:id="@+id/question_anwser_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question_anwser_describe"
+            android:paddingLeft="20dp"
+            android:text="编辑\n"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/question_anwser_edit"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="20dp"
+            android:text="评论"/>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:background="#808080"
+        android:alpha="0.8"
+        android:visibility="visible"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/close_sharemicroblog_dialog"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageView
+            android:id="@+id/problem_center_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/one_more_apply"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            />
+        <TextView
+            android:layout_below="@id/problem_center_share"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="点击右上角可分享"
+            />
+    </RelativeLayout>
 </FrameLayout>
