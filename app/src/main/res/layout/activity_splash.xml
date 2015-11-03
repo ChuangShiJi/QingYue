@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="[轻阅]使用完全免费，在使用过程中会产生移动网络或wlan流量，
         具体流量资费请咨询您的网络运营商，在使用过程中[轻阅]需要：进行网络通信获取网络状态，
-        WLAN状态。\n\n 为了提供更好的用户体验，[轻阅]将收集用户部分信息，是否同意？\n\n"/>
+        WLAN状态。\n\n 为了提供更好的用户体验，[轻阅]将收集用户部分信息，您是否同意？\n\n"/>
 
             <CheckBox
                 android:id="@+id/splash_chexkbox"
