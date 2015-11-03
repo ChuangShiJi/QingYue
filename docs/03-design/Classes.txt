@@ -1,0 +1,14 @@
+包含主要类的说明
+1.SplashActivity 启动扉页
+2.QingYueActivity 主界面
+3.LoginActivity 登录界面
+4.SettingActivity 设置界面
+5.RegardActivity 关于界面
+主界面的五个大模块的Fragment定义
+HomePageFragment发现 模块
+ArticleFragment 文章模块
+QuestionFragment 问题模块
+ObjectFragment 东西模块
+PersonFragment 个人模块
+
+PS：实现每个成员按照模块划分，创建对应的名包，自己模块的功能。
