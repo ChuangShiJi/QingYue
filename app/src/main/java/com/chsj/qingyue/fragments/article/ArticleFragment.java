@@ -1,4 +1,4 @@
-package com.chsj.qingyue.fragments.question;
+package com.chsj.qingyue.fragments.article;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.chsj.qingyue.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class QuestionFragment extends Fragment {
+public class ArticleFragment extends Fragment {
 
 
-    public QuestionFragment() {
+    public ArticleFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false);
+        return inflater.inflate(R.layout.fragment_article, container, false);
     }
 
 
