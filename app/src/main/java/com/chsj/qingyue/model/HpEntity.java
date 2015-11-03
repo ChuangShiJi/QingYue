@@ -7,4 +7,9 @@ package com.chsj.qingyue.model;
  */
 public class HpEntity {
 
+    private String strThumbnaiUrl;
+    private String Author;
+    private String strContent;
+    private String strPn;
+
 }

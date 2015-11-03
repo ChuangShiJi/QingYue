@@ -1,4 +1,4 @@
-package com.chsj.qingyue.fragments;
+package com.chsj.qingyue.homepage;
 
 
 import android.os.Bundle;
