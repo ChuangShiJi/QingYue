@@ -7,9 +7,7 @@
         android:drawable="@drawable/mobile_one_home_page_press_down"
         />
 
-
     <item
         android:drawable="@drawable/mobile_one_home_page_button"/>
-
 
 </selector>
