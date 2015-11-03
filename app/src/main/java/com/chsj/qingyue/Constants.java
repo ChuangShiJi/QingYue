@@ -14,5 +14,7 @@ public class Constants {
 
 
     public static final String URL_HOME_PAGE = "http://rest.wufazhuce.com/OneForWeb/one/getHp_N?strDate=null&strRow=%d";
+    //    文章的地址链接
+    public static final String ARTICLE_URL = "http://rest.wufazhuce.com/OneForWeb/one/getC_N";
 
 }

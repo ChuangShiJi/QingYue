@@ -1,6 +1,9 @@
 package com.chsj.qingyue.fragments.homepage;
 
 
+import java.util.List;
+
+
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -19,6 +22,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.chsj.qingyue.Constants;
 import com.chsj.qingyue.R;
@@ -80,7 +89,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                 false
         );
 
-        recyclerView.setLayoutManager(manager);
         adapter = new MyRecyclerAdapter(datas);
         recyclerView.setAdapter(adapter);
 
@@ -317,6 +325,5 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         }
     }
-
 
 }

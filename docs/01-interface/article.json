@@ -1,8 +1,22 @@
 {
   "contentEntity": {
-    "strLastUpdateDate": "2015-10-29 15:24:29",
-    "strContent": "我的大学老师在教刑法时曾经反复告诫我们：......"
-  }
+    "strLastUpdateDate": "2015-11-02 11:03:22",
+    "strContent": "文章内容",
+    "sWebLk": "http://m.wufazhuce.com/article/2015-11-03",
+    "wImgUrl": "http://211.152.49.184:9000/upload/onephoto/f1446433401988.jpg",
+    "sRdNum": "84418",
+    "strPraiseNumber": "7873",
+    "strContDayDiffer": "",
+    "strContentId": "1214",
+    "strContTitle": "标题",
+    "strContAuthor": "作者",
+    "strContAuthorIntroduce": "作者介绍",
+    "strContMarketTime": "2015-11-03",
+    "sGW": "杞胯溅鐑ф帀鏈€鍚庣殑姹芥补锛屽敱鐗囨満鎹笂鏂扮殑榛戣兌锛岄厭鍚ч噷鐨勪汉绾风悍鏁ｅ幓锛屾棭椁愬簵鐨勪笁鏄庢不鍒氬ソ鏂伴矞鍑虹倝銆傝€屾粴婊氱孩灏樹腑锛岄偅浠藉崙寰殑銆佷綆澹颁笅姘旂殑鐖憋紝缁堜簬涔熺唲鐏簡銆�",
+    "sAuth": "鍛ㄨ嫃濠曪紝闈掑勾浣滃銆�",
+    "sWbN": "寰俊鍏紬鍙凤細sujiewriting",
+    "subTitle": ""
+  },
+  "result": "SUCCESS"
 }
-
 //strContetn为一段文章内容，这里做了简化

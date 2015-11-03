@@ -2,7 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:drawable="@mipmap/mobile_one_details_page_press_down" android:state_pressed="true" />
+    <item android:drawable="@mipmap/mobile_one_details_page_press_down"
+        android:state_checked="true" />
 
     <item android:drawable="@mipmap/mobile_one_details_page_button" />
 
