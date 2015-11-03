@@ -13,4 +13,7 @@ public class Constants {
     //    欢迎页显示的版本，根据版本判断是否显示
     public static final String SP_KEY_IS_AGREE = "agree";
 
+//    文章的地址链接
+    public static final String ARTICLE_URL="http://rest.wufazhuce.com/OneForWeb/one/getC_N";
+
 }

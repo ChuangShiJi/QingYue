@@ -1,7 +1,11 @@
 package com.chsj.qingyue;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import com.chsj.qingyue.fragments.article.ArticleFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-    }
 
+    }
 
 }
