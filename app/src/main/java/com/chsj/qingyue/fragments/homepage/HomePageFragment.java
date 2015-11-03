@@ -11,6 +11,7 @@ import com.chsj.qingyue.R;
 
 /**
  * A simple {@link Fragment} subclass.
+ *
  */
 public class HomePageFragment extends Fragment {
 
