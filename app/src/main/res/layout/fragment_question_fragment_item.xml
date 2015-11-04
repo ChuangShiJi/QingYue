@@ -1,4 +1,4 @@
-<ScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,131 +6,146 @@
     android:layout_height="match_parent"
     >
 
-    <android.support.v7.widget.CardView
-        android:padding="15dp"
-        app:contentPadding ="5dp"
-        app:cardCornerRadius = "15dp"
-        app:cardElevation = "10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <RelativeLayout
+        <ScrollView
+            android:id="@+id/question_scrollView"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/question_fragment_date"
+            <android.support.v7.widget.CardView
+                android:padding="15dp"
+                app:contentPadding ="5dp"
+                app:cardCornerRadius = "15dp"
+                app:cardElevation = "10dp"
+                android:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="November 03,2015"/>
+                android:layout_height="match_parent"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:id="@+id/question_problem"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/question_fragment_date"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/question_title_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/mobile_one_question_page_question_image"
-                    />
-                <TextView
-                    android:id="@+id/question_fragment_title"
-                    android:layout_toRightOf="@id/question_title_img"
-                    android:paddingLeft="10dp"
-                    android:textSize="18dp"
-                    android:singleLine="true"
-                    android:layout_width="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_height="wrap_content"
-                    android:text="问题的标题"
-                    />
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/question_fragment_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="November 03,2015"/>
 
-            <TextView
-                android:id="@+id/question_problem_describe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/question_problem"
-                android:layout_marginTop="10dp"
-                android:textSize="15dp"
-                android:text="问题的描述内容，问题的描述内容问题的描述内
+                    <RelativeLayout
+                        android:id="@+id/question_problem"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/question_fragment_date"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/question_title_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/mobile_one_question_page_question_image"
+                            />
+                        <TextView
+                            android:id="@+id/question_fragment_title"
+                            android:layout_toRightOf="@id/question_title_img"
+                            android:paddingLeft="10dp"
+                            android:textSize="18dp"
+                            android:singleLine="true"
+                            android:layout_width="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content"
+                            android:text="问题的标题"
+                            />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/question_problem_describe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/question_problem"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp"
+                        android:text="问题的描述内容，问题的描述内容问题的描述内
             容问题的描述内容问题的描述内容问题的描述内容问题的描述内容
             问题的描述内容问题的描述内容问题的描述内容问题的描述内容问题
             的描述内容问题的描述内容问题的描述内容问题的描述内容问题的描
             述内容问题的描述内容问题的描述内容问题的描述内容"
-                />
+                        />
 
-            <TextView
-                android:id="@+id/question_line"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#45C8F2"
-                android:layout_below="@id/question_problem_describe"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                />
+                    <TextView
+                        android:id="@+id/question_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#45C8F2"
+                        android:layout_below="@id/question_problem_describe"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        />
 
-            <RelativeLayout
-                android:id="@+id/question_anwser_content"
-                android:layout_below="@id/question_line"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/question_anwser_content"
+                        android:layout_below="@id/question_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/question_answer_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/mobile_one_question_page_answer"
-                    />
-                <TextView
-                    android:id="@+id/question_answer_title"
-                    android:layout_toRightOf="@id/question_answer_img"
-                    android:paddingLeft="10dp"
-                    android:textSize="18dp"
-                    android:singleLine="true"
-                    android:layout_width="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_height="wrap_content"
-                    android:text="问题的回答"
-                    />
+                        <ImageView
+                            android:id="@+id/question_answer_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/mobile_one_question_page_answer"
+                            />
+                        <TextView
+                            android:id="@+id/question_answer_title"
+                            android:layout_toRightOf="@id/question_answer_img"
+                            android:paddingLeft="10dp"
+                            android:textSize="18dp"
+                            android:singleLine="true"
+                            android:layout_width="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content"
+                            android:text="问题的回答"
+                            />
 
-            </RelativeLayout>
+                    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/question_anwser_describe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/question_anwser_content"
-                android:layout_marginTop="10dp"
-                android:textSize="15dp"
-                android:text="问题的描述内容，问题的描述内容问题的描述内
+                    <TextView
+                        android:id="@+id/question_anwser_describe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/question_anwser_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp"
+                        android:text="问题的描述内容，问题的描述内容问题的描述内
             容问题的描述内容问题的描述内容问题的描述内容问题的描述内容
             问题的描述内容问题的描述内容问题的描述内容问题的描述内容问题
             的描述内容问题的描述内容问题的描述内容问题的描述内容问题的描
             述内容问题的描述内容问题的描述内容问容\n"
-                />
+                        />
 
-            <TextView
-                android:id="@+id/question_anwser_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/question_anwser_describe"
-                android:paddingLeft="20dp"
-                android:text="编辑\n"/>
+                    <TextView
+                        android:id="@+id/question_anwser_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/question_anwser_describe"
+                        android:paddingLeft="20dp"
+                        android:text="编辑\n"/>
 
-            <TextView
-                android:id="@+id/question_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/question_anwser_edit"
-                android:layout_alignParentRight="true"
-                android:paddingLeft="20dp"
-                android:textSize="10dp"
-                android:text="评论"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                    <TextView
+                        android:id="@+id/question_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/question_anwser_edit"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="20dp"
+                        android:textSize="10dp"
+                        android:text="评论"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </ScrollView>
 
-</ScrollView>
+    <ImageView
+        android:id="@+id/queation_progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:background="@anim/waiting_anim"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>
