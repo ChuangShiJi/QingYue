@@ -5,6 +5,7 @@
     <item android:drawable="@drawable/mobile_one_home_page_press_down"
         android:state_checked="true" />
 
-    <item android:drawable="@drawable/mobile_one_home_page_button" />
+    <item android:drawable="@drawable/mobile_one_home_page_button"
+        />
 
 </selector>

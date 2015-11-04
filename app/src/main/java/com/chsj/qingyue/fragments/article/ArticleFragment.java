@@ -94,10 +94,6 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
 
     @Override
     public void onPageSelected(int position) {
-//        Bundle bundle=new Bundle();
-//        bundle.putInt("page",position+1);
-//        datas.get(position).get
-//        datas.get(position).setArguments(bundle);
 
     }
 

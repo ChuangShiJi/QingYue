@@ -35,6 +35,7 @@ public class QuestionFragmentItem extends Fragment {
     private TextView anwserTitle,anwserDescript;
     private TextView sEdit;
     private TextView anwserComment;
+    private View view;
 
     //获取实例的方法：
     public static QuestionFragmentItem getInstance(String url){
@@ -48,12 +49,14 @@ public class QuestionFragmentItem extends Fragment {
     }
 
     public QuestionFragmentItem() {
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_question_fragment_item, container, false);
+        view = inflater.inflate(R.layout.fragment_question_fragment_item, container, false);
 
         time = (TextView) view.findViewById(R.id.question_fragment_date);
         questionTitle = (TextView) view.findViewById(R.id.question_fragment_title);
@@ -63,29 +66,31 @@ public class QuestionFragmentItem extends Fragment {
         sEdit = (TextView) view.findViewById(R.id.question_anwser_edit);
         anwserComment = (TextView) view.findViewById(R.id.question_comment);
 
-        //初始化数据：
+        return view;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //初始化数据
         initData();
 
-        initView();
-
-        return view;
     }
 
     private void initView() {
 
-
         if (questionEntity!=null){
-
-            Log.i("info","------"+questionEntity.toString()+"======");
 
             //初始化视图：
             time.setText(questionEntity.getStrQuestionMarketTime());
             questionTitle.setText(questionEntity.getStrQuestionTitle());
             questionDescrpt.setText(questionEntity.getStrQuestionContent());
             anwserTitle.setText(questionEntity.getStrAnswerTitle());
-            anwserDescript.setText(questionEntity.getStrAnswerContent());
-            sEdit.setText(questionEntity.getSEditor());
-            anwserComment.setText(questionEntity.getStrPraiseNumber());
+            anwserDescript.setText(replaceStrBr(questionEntity.getStrAnswerContent())+"\n");
+            sEdit.setText(questionEntity.getSEditor()+"\n");
+            anwserComment.setText("当前评论:"+questionEntity.getStrPraiseNumber());
 
         }
     }
@@ -106,7 +111,9 @@ public class QuestionFragmentItem extends Fragment {
                             Gson gson = new Gson();
                             questionEntity = gson.fromJson(quesJsonbject.toString(), token.getType());
 
-                            Log.i("info","====="+questionEntity.toString());
+                            //初始化视图：
+                            initView();
+
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -116,5 +123,9 @@ public class QuestionFragmentItem extends Fragment {
         }).execute(getArguments().getString("url"));
     }
 
+    //字符穿替换方法：
+    public String replaceStrBr(String str){
+        return str.replace("<br>", "\n");
+    }
 
 }
