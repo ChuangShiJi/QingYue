@@ -22,6 +22,7 @@
             android:visibility="invisible" />
 
         <ImageView
+            android:id="@+id/title_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/one_title"

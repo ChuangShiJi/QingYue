@@ -1,20 +1,17 @@
 package com.chsj.qingyue.fragments.question;
 
 
-import android.annotation.SuppressLint;
-import android.app.FragmentManager;
-import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.chsj.qingyue.Constants;
-import com.chsj.qingyue.QuestionEntity;
+import com.chsj.qingyue.model.QuestionEntity;
 import com.chsj.qingyue.R;
 import com.chsj.qingyue.tasks.QuestionAsyncTask;
 import com.google.gson.Gson;
@@ -26,7 +23,7 @@ import org.json.JSONObject;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class QuestionFragmentItem extends Fragment {
+public class QuestionFragmentItem extends Fragment implements View.OnClickListener {
 
     private QuestionEntity questionEntity;
 
@@ -36,6 +33,11 @@ public class QuestionFragmentItem extends Fragment {
     private TextView sEdit;
     private TextView anwserComment;
     private View view;
+    private int well;
+    private ScrollView scrollView;
+
+    private ImageView imageView;
+    private AnimationDrawable anim;
 
     //获取实例的方法：
     public static QuestionFragmentItem getInstance(String url){
@@ -49,7 +51,6 @@ public class QuestionFragmentItem extends Fragment {
     }
 
     public QuestionFragmentItem() {
-
     }
 
 
@@ -66,6 +67,11 @@ public class QuestionFragmentItem extends Fragment {
         sEdit = (TextView) view.findViewById(R.id.question_anwser_edit);
         anwserComment = (TextView) view.findViewById(R.id.question_comment);
 
+        imageView = (ImageView) view.findViewById(R.id.queation_progress_loading);
+        scrollView = (ScrollView) view.findViewById(R.id.question_scrollView);
+
+        anwserComment.setOnClickListener(this);
+
         return view;
     }
 
@@ -74,9 +80,10 @@ public class QuestionFragmentItem extends Fragment {
     public void onResume() {
         super.onResume();
 
+        anim = (AnimationDrawable) imageView.getBackground();
+        anim.start();
         //初始化数据
         initData();
-
     }
 
     private void initView() {
@@ -92,6 +99,8 @@ public class QuestionFragmentItem extends Fragment {
             sEdit.setText(questionEntity.getSEditor()+"\n");
             anwserComment.setText("当前评论:"+questionEntity.getStrPraiseNumber());
 
+            //获取点赞数
+            well = Integer.parseInt(questionEntity.getStrPraiseNumber());
         }
     }
 
@@ -113,6 +122,9 @@ public class QuestionFragmentItem extends Fragment {
 
                             //初始化视图：
                             initView();
+                            anim.stop();
+                            imageView.setVisibility(View.GONE);
+                            scrollView.setVisibility(View.VISIBLE);
 
                         }
                     } catch (JSONException e) {
@@ -123,9 +135,27 @@ public class QuestionFragmentItem extends Fragment {
         }).execute(getArguments().getString("url"));
     }
 
+    public QuestionEntity getQuestionEntity() {
+        return questionEntity;
+    }
+
     //字符穿替换方法：
     public String replaceStrBr(String str){
         return str.replace("<br>", "\n");
     }
 
+    private boolean isClick = true; //初始为  可以点击的
+    @Override
+    public void onClick(View v) {
+
+        if (isClick){
+            well = well+1;
+            anwserComment.setText("当前评论:"+ well);
+            isClick = false;
+        }else{
+            well = well-1;
+            anwserComment.setText("当前评论:"+well);
+            isClick = true;
+        }
+    }
 }

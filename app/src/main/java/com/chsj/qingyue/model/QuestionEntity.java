@@ -1,4 +1,7 @@
-package com.chsj.qingyue;
+package com.chsj.qingyue.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.json.JSONObject;
 
@@ -144,4 +147,5 @@ public class QuestionEntity {
                 ", sEditor='" + sEditor + '\'' +
                 '}';
     }
+
 }
