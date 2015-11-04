@@ -3,6 +3,7 @@ package com.chsj.qingyue.fragments.homepage;
 
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -108,12 +109,13 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
+                //TODO 仿viewpager滑动效果
 
-                if (dy >= 0 && recyclerView.getChildAt(0).getTop() < 0 && Math.abs(recyclerView.getChildAt(0).getTop()) > recyclerView.getHeight() / 2) {
-                    recyclerView.scrollToPosition(++index);
-                } else if (dy < 0 && recyclerView.getChildAt(0).getTop() < 0 && Math.abs(recyclerView.getChildAt(0).getTop()) < recyclerView.getHeight() / 2) {
-                    recyclerView.scrollToPosition(--index);
-                }
+//                if (dy >= 0 && recyclerView.getChildAt(0).getTop() < 0 && Math.abs(recyclerView.getChildAt(0).getTop()) > recyclerView.getHeight() / 2) {
+//                    recyclerView.scrollToPosition(++index);
+//                } else if (dy < 0 && recyclerView.getChildAt(0).getTop() < 0 && Math.abs(recyclerView.getChildAt(0).getTop()) < recyclerView.getHeight() / 2) {
+//                    recyclerView.scrollToPosition(--index);
+//                }
 
             }
         });
@@ -207,13 +209,17 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                 Drawable drawable = imgShow.getDrawable();
 
 
-                //TODO 保存图片出问题
-                int width = drawable.getIntrinsicWidth();
-                int height = drawable.getIntrinsicHeight();
-                Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+//                Bitmap bitmap = Bitmap.createBitmap(
+//                        drawable.getIntrinsicWidth(),
+//                        drawable.getIntrinsicHeight(),
+//                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+//                                : Bitmap.Config.RGB_565);
+
+                BitmapDrawable d = (BitmapDrawable) drawable;
+                Bitmap bitmap = d.getBitmap();
 
                 try {
-                    ImageUtils.saveImg(imgUrl, bitmap);
+                    ImageUtils.saveImg(imgUrl.replace("jgp", "png"), bitmap);
                     Toast.makeText(getActivity(), "保存成功!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 } catch (IOException e) {
@@ -266,13 +272,13 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             imgUrl = hpEntity.getStrThumbnaiUrl();
 
 
-            Bitmap bitmap = ImageUtils.getImg(imgUrl);
-//            if (bitmap != null) {
-//                holder.imageView.setImageBitmap(bitmap);
-//            } else {
+            Bitmap bitmap = ImageUtils.getImg(imgUrl.replace("jgp", "png"));
+            if (bitmap != null) {//从sdk中获取图片
+                holder.imageView.setImageBitmap(bitmap);
+            } else {//从网络下载图片
 
-            Picasso.with(getActivity().getApplicationContext()).load(hpEntity.getStrThumbnaiUrl()).into(holder.imageView);
-//            }
+                Picasso.with(getActivity().getApplicationContext()).load(hpEntity.getStrThumbnaiUrl()).into(holder.imageView);
+            }
 
 
             String str = hpEntity.getAuthor();
@@ -280,6 +286,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             holder.txtAuthor.setText(str.substring(str.indexOf('&') + 1));
             holder.txtContent.setText(hpEntity.getStrContent());
             holder.txtPn.setText(hpEntity.getStrPn());
+
 
         }
 
@@ -297,7 +304,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         private TextView txtContent;
         private TextView txtPn;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.fragment_homepage_item_icon);
@@ -306,17 +313,39 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             txtContent = (TextView) itemView.findViewById(R.id.fragment_homepage_item_content);
             txtPn = (TextView) itemView.findViewById(R.id.fragment_homepage_item_pn);
 
-            itemView.setOnClickListener(this);
+            imageView.setOnClickListener(this);
+
+            txtPn.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
-            frameLayout.setVisibility(View.VISIBLE);
-            imgShow.setImageDrawable(imageView.getDrawable());
-            Animation mAnimation = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.imgshowscal);
-            mAnimation.setFillAfter(true);
-            imgShow.startAnimation(mAnimation);
+
+            int id = v.getId();
+
+            switch (id) {
+                case R.id.fragment_homepage_item_icon:
+                    frameLayout.setVisibility(View.VISIBLE);
+                    imgShow.setImageDrawable(imageView.getDrawable());
+                    Animation mAnimation = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.imgshowscal);
+                    mAnimation.setFillAfter(true);
+                    imgShow.startAnimation(mAnimation);
+                    break;
+
+                case R.id.fragment_homepage_item_pn:
+
+                    TextView tv = (TextView) v;
+                    Drawable drawable = itemView.getContext().getResources().getDrawable(R.mipmap.laud_press_down);
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                    tv.setCompoundDrawables(drawable, null, null, null);
+                    String n = tv.getText().toString();
+                    int num = Integer.parseInt(n);
+                    tv.setText(String.valueOf(num + 1));
+                    tv.setClickable(false);
+
+            }
+
 
         }
     }
