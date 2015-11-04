@@ -14,8 +14,8 @@ public class Constants {
     //    欢迎页显示的版本，根据版本判断是否显示
     public static final String SP_KEY_IS_AGREE = "agree";
 
+
     public static final String POSITION_URL =
             "http://rest.wufazhuce.com/OneForWeb/one/getQ_N?" +
-                    "strDate=null&strRow=%s";
-
+            "strDate=null&strRow=%s";
 }
