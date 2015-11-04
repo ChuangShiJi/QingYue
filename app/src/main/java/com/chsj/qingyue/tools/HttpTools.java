@@ -10,9 +10,10 @@ import java.net.URL;
 import java.util.zip.GZIPInputStream;
 
 /**
- * Author:whl
- * Email:294084532@qq.com
- * 2015/10/12
+ * ProjectName : com.chsj.qingyue.tasks
+ * Created by : ChSJ.Team
+ * Email : zhaoq_hero163.com
+ * On 2015/11/3 // 20:23
  */
 
 /**
@@ -125,7 +126,6 @@ public final class HttpTools {
         }
         return ret;
     }
-
 
 }
 
