@@ -1,0 +1,51 @@
+package com.chsj.qingyue;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+public class LoginActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login_activity);
+    }
+
+
+    //    点击事件的实现
+    public void loginOperate(View view) {
+        if (view != null) {
+            int id = view.getId();
+            switch (id) {
+//                回退按键退出当前的Activity
+                case R.id.login_back:
+                    finish();
+                    break;
+//                登录按键
+                case R.id.login_button:
+                    break;
+//                忘记密码处理
+                case R.id.login_forgetpwd:
+                    break;
+//                注册新用户
+                case R.id.login_new_user_register:
+                    break;
+//                第三方微信登录
+                case R.id.login_wechat:
+                    break;
+//                第三方qq登录
+                case R.id.login_qq:
+                    break;
+//                第三方新浪登录
+                case R.id.login_sina:
+                    Toast.makeText(this, "新浪登录", Toast.LENGTH_SHORT).show();
+                    break;
+
+            }
+        }
+    }
+}

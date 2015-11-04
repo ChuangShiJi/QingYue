@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.Image;
 import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,16 +17,18 @@ import android.widget.Toast;
 
 import com.chsj.qingyue.fragments.article.ArticleFragment;
 import com.chsj.qingyue.fragments.homepage.HomePageFragment;
-import com.chsj.qingyue.fragments.object.ObjectFragment;
+import com.chsj.qingyue.fragments.object.SongFragment;
 import com.chsj.qingyue.fragments.person.PersonFragment;
 import com.chsj.qingyue.fragments.question.QuestionFragment;
 import com.chsj.qingyue.fragments.question.QuestionFragmentItem;
+import com.chsj.qingyue.tools.NetWorkUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RadioButton first, article, question, things, personal;
 
     private ImageView share;
+    private boolean isNetWorkAvalable;
 
     //本地广播管理器对象：
     private LocalBroadcastManager localBroadcastManager;
@@ -37,9 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HomePageFragment fragment = new HomePageFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_id, fragment)
-                .commit();
+
+        isNetWorkAvalable = NetWorkUtils.isConnect(this);
+
+
         first = (RadioButton) findViewById(R.id.main_tab_item_first);
         article = (RadioButton) findViewById(R.id.main_tab_item_article);
         question = (RadioButton) findViewById(R.id.main_tab_item_problem);
@@ -54,6 +58,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         things.setOnClickListener(this);
         personal.setOnClickListener(this);
 
+        if (!isNetWorkAvalable) {//当前没有网络，进入 网络设置界面
+            //TODO 进行网络设置
+            Intent intent = new Intent(MainActivity.this, SettingNetActivity.class);
+            startActivity(intent);
+        } else {//有网络，加载默认的fragment
+            HomePageFragment fragment = new HomePageFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_id, fragment)
+                    .commit();
+        }
         //实例化广播接受者：
         localBroadcastManager = LocalBroadcastManager.getInstance(getApplicationContext());
         shareBroadcastReceiver = new ShareBroadcastReceiver();
@@ -92,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.main_tab_item_things:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_id, new ObjectFragment())
+                        .replace(R.id.fragment_id, new SongFragment())
                         .commit();
                 break;
 
