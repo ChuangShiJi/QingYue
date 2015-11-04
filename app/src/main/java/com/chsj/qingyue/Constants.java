@@ -33,4 +33,12 @@ public class Constants {
     //某一歌曲的详细信息
     public static final String SONG_DETAILS_URL = "http://ting.baidu.com/data/music/links?songIds=%s";
 
+
+    /**
+     * 发送广播数据
+     */
+    public static final String GET_DATA_TO_SHARE = "chsj.get.data.share";
+
+    public static final String DATA_TO_EXTRA = "data";
+
 }
