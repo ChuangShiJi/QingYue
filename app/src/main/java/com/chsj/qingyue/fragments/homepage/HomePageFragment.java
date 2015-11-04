@@ -53,6 +53,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     private static ImageView imgShow;
     //占位的帧布局
     private static FrameLayout frameLayout;
+    private static boolean isImgShow;
 
 
     public HomePageFragment() {
@@ -72,11 +73,12 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View ret = null;
 
-        View view = inflater.inflate(R.layout.fragment_home_page, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_homepage_recycler_view);
-        imgShow = (ImageView) view.findViewById(R.id.fragment_home_page_showbig_img);
-        frameLayout = (FrameLayout) view.findViewById(R.id.fragment_home_page_framelayout);
+        ret = inflater.inflate(R.layout.fragment_home_page, container, false);
+        recyclerView = (RecyclerView) ret.findViewById(R.id.fragment_homepage_recycler_view);
+        imgShow = (ImageView) ret.findViewById(R.id.fragment_home_page_showbig_img);
+        frameLayout = (FrameLayout) ret.findViewById(R.id.fragment_home_page_framelayout);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(
                 getActivity().getApplicationContext(),
                 LinearLayoutManager.VERTICAL,
@@ -100,9 +102,10 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             /**
              * 监听滑动事件，实现类似Viewager的切换效果，
+             *
              * @param recyclerView
              * @param dx
-             * @param dy  dy>0代表上拉  dy<0代表下拉
+             * @param dy           dy>0代表上拉  dy<0代表下拉
              */
 
             @Override
@@ -125,7 +128,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         imgShow.setOnLongClickListener(this);
 
 
-        return view;
+        return ret;
     }
 
 
@@ -163,6 +166,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onClick(View v) {
         frameLayout.setVisibility(View.INVISIBLE);
+        isImgShow = false;
 
     }
 
@@ -219,7 +223,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                 Bitmap bitmap = d.getBitmap();
 
                 try {
-                    ImageUtils.saveImg(imgUrl.replace("jgp", "png"), bitmap);
+                    ImageUtils.saveImg("qingyue" + imgUrl.replace("jgp", "png"), bitmap);
+                    ImageUtils.saveImageToGallery(getActivity().getApplicationContext(), bitmap);
                     Toast.makeText(getActivity(), "保存成功!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 } catch (IOException e) {
@@ -272,7 +277,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             imgUrl = hpEntity.getStrThumbnaiUrl();
 
 
-            Bitmap bitmap = ImageUtils.getImg(imgUrl.replace("jgp", "png"));
+            Bitmap bitmap = ImageUtils.getImg("qingyue" + imgUrl.replace("jgp", "png"));
             if (bitmap != null) {//从sdk中获取图片
                 holder.imageView.setImageBitmap(bitmap);
             } else {//从网络下载图片
@@ -331,6 +336,9 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                     Animation mAnimation = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.imgshowscal);
                     mAnimation.setFillAfter(true);
                     imgShow.startAnimation(mAnimation);
+
+                    isImgShow = true;
+
                     break;
 
                 case R.id.fragment_homepage_item_pn:
