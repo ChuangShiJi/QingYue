@@ -86,7 +86,6 @@ public class SongDetailsFragment extends Fragment {
 
             }
         }).execute(String.format(Constants.SONG_DETAILS_URL, songId));
-
     }
 
     /**
