@@ -4,9 +4,11 @@ package com.chsj.qingyue.fragments.article;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.chsj.qingyue.R;
 
@@ -21,7 +23,9 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
     private ViewPager viewPager;
     private ArticleFragmentAdapter adapter;
     private List<ArticleFragmentItem> datas;
-
+    private boolean isRefresh;
+    private boolean isLoadFinish;
+    private int count;
 
     public ArticleFragment() {
         // Required empty public constructor
@@ -32,10 +36,10 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
         super.onCreate(savedInstanceState);
         datas = new LinkedList<ArticleFragmentItem>();
         for (int i = 0; i < 10; i++) {
-            ArticleFragmentItem item=new ArticleFragmentItem();
-            Bundle bundle=new Bundle();
+            ArticleFragmentItem item = new ArticleFragmentItem();
+            Bundle bundle = new Bundle();
 
-            bundle.putInt("page",i+1);
+            bundle.putInt("page", i + 1);
             item.setArguments(bundle);
             datas.add(item);
         }
@@ -59,6 +63,32 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//        检测ViewPager的滑动，事项右滑刷新，左化加载
+        if (positionOffsetPixels == 0) {
+            count++;
+        }
+        if (count > 5) {
+            if (position == 0) {
+                if (positionOffset != 0) {
+                    isRefresh = false;
+                }
+                if (positionOffset == 0 && isRefresh) {
+                    Toast.makeText(getActivity(), "已是最新内容", Toast.LENGTH_SHORT).show();
+                    isRefresh = false;
+
+                }
+            }
+            if (position == 9) {
+                if (positionOffset != 0) {
+                    isRefresh = false;
+                }
+                if (positionOffset == 0 && isRefresh) {
+                    Toast.makeText(getActivity(), "已无更多内容", Toast.LENGTH_SHORT).show();
+                    isRefresh = false;
+                }
+            }
+        }
+
 
     }
 
@@ -73,6 +103,12 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
 
     @Override
     public void onPageScrollStateChanged(int state) {
+        if (state == ViewPager.SCROLL_STATE_IDLE) {
+            isRefresh = true;
+            count = 0;
+
+        }
+
 
     }
 
