@@ -23,6 +23,7 @@ import com.chsj.qingyue.R;
 public class ArticleFragmentItem extends Fragment implements ArticleTask.ArticleCompleteListener, CompoundButton.OnCheckedChangeListener {
     //    Fragment中当前页数
     private int page;
+    private int praiseNum;
     //    post请求地址中的参数
     private LinearLayout linearLayout;
     private String paramers = "strDate=null&strRow=%d";
@@ -91,6 +92,7 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
         String str[] = content.split("<b>");
         contentTV.setText(str[0].replace("<br>", "\n"));
         praiseBtn.setText(articleEntity.getStrPraiseNumber());
+        praiseNum = Integer.parseInt(articleEntity.getStrPraiseNumber());
         weixinTV.setText(articleEntity.getSWbN());
         authorIntroduce.setText(articleEntity.getStrContAuthorIntroduce());
         authorNameW_article_fragment_item.setText(articleEntity.getStrContAuthor());
@@ -104,7 +106,12 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //        ArticleTask task = (ArticleTask) new ArticleTask(this)
 //                .execute(Constants.ARTICLE_URL, String.format(paramers, page));
-        praiseBtn.setText("34324");
+        if (isChecked) {
+            praiseNum++;
+        } else {
+            praiseNum--;
+        }
+        praiseBtn.setText("" + praiseNum);
 //        TODO 点赞处理
     }
 }
