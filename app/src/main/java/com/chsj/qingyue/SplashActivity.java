@@ -1,20 +1,11 @@
 package com.chsj.qingyue;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,7 +21,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
     private RelativeLayout relative;
 
-    private TextView txt_agree,txt_exit;
+    private TextView txt_agree, txt_exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +50,17 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         if (anInt == 1) { //设置  不显示
 
             relative.setVisibility(View.INVISIBLE);
-
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            toNewActivity();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                        toNewActivity();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
         }
     }
 
@@ -86,14 +81,14 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        switch(v.getId()){
+        switch (v.getId()) {
 
             case R.id.splash_agree:
 
-                if (checkBox.isChecked()){
+                if (checkBox.isChecked()) {
 
                     SharedPreferences.Editor edit = sp.edit();
-                    edit.putInt(Constants.SP_KEY_IS_AGREE,0);//添加选中
+                    edit.putInt(Constants.SP_KEY_IS_AGREE, 1);//添加选中
                     edit.commit();
 
                 }
