@@ -41,11 +41,13 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
 
     //获取实例的方法：
     public static QuestionFragmentItem getInstance(String url){
-        QuestionFragmentItem fr = new QuestionFragmentItem();
-
-        Bundle args = new Bundle();
-        args.putString("url",url);
-        fr.setArguments(args);
+        QuestionFragmentItem fr = null;
+        if (url != null) {
+             fr = new QuestionFragmentItem();
+            Bundle args = new Bundle();
+            args.putString("url",url);
+            fr.setArguments(args);
+        }
 
         return fr;
     }
@@ -84,6 +86,7 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
         anim.start();
         //初始化数据
         initData();
+
     }
 
     private void initView() {

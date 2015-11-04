@@ -79,7 +79,6 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
         }
     }
 
-
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
