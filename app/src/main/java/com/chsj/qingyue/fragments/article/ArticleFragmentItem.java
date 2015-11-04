@@ -87,9 +87,11 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
 
         markeTimeTV.setText(time);
         contTitleTV.setText(articleEntity.getStrContTitle());
+
         String content = articleEntity.getStrContent();
         String str[] = content.split("<b>");
         contentTV.setText(str[0].replace("<br>", "\n"));
+
         praiseBtn.setText(articleEntity.getStrPraiseNumber());
         weixinTV.setText(articleEntity.getSWbN());
         authorIntroduce.setText(articleEntity.getStrContAuthorIntroduce());
