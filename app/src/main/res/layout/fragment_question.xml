@@ -6,8 +6,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/position_fragment_viewpager"
-        android:layout_width ="match_parent"
-        android:layout_height ="match_parent"
+        style="@style/allWidthAndHeightMatchParent"
         />
 
     <RelativeLayout
@@ -15,7 +14,7 @@
         android:layout_gravity="center"
         android:background="#808080"
         android:alpha="0.8"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_height="100dp">
 
         <ImageView
@@ -38,10 +37,9 @@
         <TextView
             android:layout_below="@id/problem_center_share"
             android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="点击右上角可分享"
+            style="@style/allWidthAndHeightWrapcontent"
+            android:textSize="15sp"
+            android:text="@string/question_message_can_share"
             />
     </RelativeLayout>
 </FrameLayout>

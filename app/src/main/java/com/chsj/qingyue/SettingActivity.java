@@ -32,7 +32,7 @@ public class SettingActivity extends AppCompatActivity {
 //                TODO 设置界面的功能实现
 //                模式设置
                 case R.id.setting_model:
-                    Toast.makeText(this, "切换模式", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.switch_mode), Toast.LENGTH_SHORT).show();
                     break;
 //                应用评分
                 case R.id.setting_grade:
@@ -78,9 +78,9 @@ public class SettingActivity extends AppCompatActivity {
             logout = true;
         }
         if (logout) {
-            Toast.makeText(this, "退出当前账号成功", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.exit_now_login_in), Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(this, "当前无账号登录", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.now_no_account_login), Toast.LENGTH_SHORT).show();
         }
 
 //isValid和removeAccount不开启线程，会直接返回。

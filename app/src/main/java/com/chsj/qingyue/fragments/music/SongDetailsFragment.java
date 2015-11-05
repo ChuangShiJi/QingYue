@@ -95,12 +95,7 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
         currentFragment = bundle.getInt("tag");
         songId = song.getSongId();
 
-
-        Log.d("fr", currentFragment + "==");
-
-
         View view = inflater.inflate(R.layout.fragment_song_details, container, false);
-
 
         initView(view);
         initData();
@@ -128,8 +123,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 //向播放组件组件发送广播
                 Intent intent = new Intent(Constants.ACTION_SEEKTO);
                 intent.putExtra(Constants.EXTRA_PROGREES_CUR, seekPosition);
-
-                Log.d("current", seekPosition + "==");
 
                 lbMgr.sendBroadcast(intent);//发送广播（在Service组件内接收）
             }

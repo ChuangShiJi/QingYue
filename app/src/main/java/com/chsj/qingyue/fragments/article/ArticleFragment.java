@@ -75,7 +75,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
                     isRefresh = false;
                 }
                 if (positionOffset == 0 && isRefresh) {
-                    Toast.makeText(getActivity(), "已是最新内容", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.now_is_lastest_content), Toast.LENGTH_SHORT).show();
                     isRefresh = false;
 
                 }
@@ -85,7 +85,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
                     isRefresh = false;
                 }
                 if (positionOffset == 0 && isRefresh) {
-                    Toast.makeText(getActivity(), "已无更多内容", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.now_is_not_content), Toast.LENGTH_SHORT).show();
                     isRefresh = false;
                 }
             }

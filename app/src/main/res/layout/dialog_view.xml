@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="left|center_vertical"
+    style="@style/allWidthAndHeightMatchParent"
+    android:gravity="start|center_vertical"
     android:orientation="vertical">
 
     <TextView
@@ -10,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:text="保存图片到相册"
+        android:text="@string/message_savepic_photo"
         android:textColor="#6e6e6e"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
     <View
         android:layout_width="match_parent"
@@ -26,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:text="取消"
+        android:text="@string/message_savepic_no"
         android:textColor="#6e6e6e"
         android:textSize="18sp" />
 </LinearLayout>

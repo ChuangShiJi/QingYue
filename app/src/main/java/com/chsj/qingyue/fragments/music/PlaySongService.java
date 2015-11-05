@@ -83,12 +83,10 @@ public class PlaySongService extends Service {
             mediaPlayer.reset();
             try {
                 mediaPlayer.setDataSource(url);
-                Log.d("media", "开始准备音乐资源");
                 mediaPlayer.prepareAsync();
                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer mp) {
-                        Log.d("media", "开始播放");
                         mediaPlayer.start();
                         new ProgressThread().start();
                     }

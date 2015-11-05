@@ -199,7 +199,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        final AlertDialog dialog = builder.setTitle("更多操作")
+        final AlertDialog dialog = builder.setTitle(getString(R.string.more_controller))
                 .setView(view)
                 .create();
 
@@ -237,7 +237,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                 try {
                     ImageUtils.saveImg("qingyue" + imgUrl.replace("jgp", "png"), bitmap);
                     ImageUtils.saveImageToGallery(getActivity().getApplicationContext(), bitmap);
-                    Toast.makeText(getActivity(), "保存成功!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),getString(R.string.save_sucess), Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -77,9 +77,9 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         if (position == 0){
-            Toast.makeText(getActivity(),"当前已是第一页",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.now_is_first_page),Toast.LENGTH_SHORT).show();
         }else if(position == 9){
-            Toast.makeText(getActivity(),"当前已是最后一夜",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getString(R.string.now_is_first_page),Toast.LENGTH_SHORT).show();
         }
     }
 
