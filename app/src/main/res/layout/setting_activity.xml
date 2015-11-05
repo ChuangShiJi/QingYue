@@ -154,6 +154,7 @@
                     android:drawablePadding="20dp"
                     android:gravity="center"
                     android:padding="16dp"
+                    android:onClick="setOperate"
                     android:text="退出当前登录"
                     android:textColor="#202020"
                     android:textSize="20sp" />

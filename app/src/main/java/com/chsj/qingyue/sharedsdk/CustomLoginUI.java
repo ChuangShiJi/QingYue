@@ -27,7 +27,7 @@ public class CustomLoginUI extends AuthorizeAdapter {
 //        getBodyView()
 
 //标题栏的文字修改
-        llTitle.getTvTitle().setText(getPlatformName()+"    name");
+        llTitle.getTvTitle().setText("轻阅");
     }
 
     public void onDestroy() {
