@@ -174,7 +174,7 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 url = songDetails.getSongLink();
                 lrcUrl = songDetails.getLrcLink();
 
-                if (songDetails != null) {
+                if (songDetails != null && imgThumb != null) {
                     Picasso.with(getActivity().getApplicationContext()).load(songDetails.getSongPicRadio()).into(imgThumb);
                 }
                 txtArtist.setText(song.getSongArtist());
