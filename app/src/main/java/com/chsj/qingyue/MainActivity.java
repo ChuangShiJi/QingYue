@@ -179,7 +179,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     Toast.makeText(this,"当前无数据可分享",Toast.LENGTH_SHORT).show();
                 }
-
                 break;
 
         }
