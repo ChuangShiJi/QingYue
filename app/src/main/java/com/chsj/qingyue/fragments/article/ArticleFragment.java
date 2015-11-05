@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chsj.qingyue.R;
+import com.chsj.qingyue.fragments.music.ZoomOutPageTransformer;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -55,6 +56,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
         View view = inflater.inflate(R.layout.article_fragment, container, false);
 
         viewPager = (ViewPager) view.findViewById(R.id.article_fragment_viewpager);
+        viewPager.setPageTransformer(true,new ZoomOutPageTransformer());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(this);
         return view;
