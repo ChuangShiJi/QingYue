@@ -35,7 +35,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
 
     private LocalBroadcastManager lbMgr;
 
-
     //歌曲图片
     private ImageView imgThumb;
     //歌词
@@ -76,6 +75,7 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
     //是否正在播放
     private boolean isPlaying = false;
     private ImageView imgControlPlay;
+    private boolean firstLoadLrc = true;
 
 
     public SongDetailsFragment() {
@@ -124,6 +124,7 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 Intent intent = new Intent(Constants.ACTION_SEEKTO);
                 intent.putExtra(Constants.EXTRA_PROGREES_CUR, seekPosition);
 
+
                 lbMgr.sendBroadcast(intent);//发送广播（在Service组件内接收）
             }
 
@@ -165,7 +166,7 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 url = songDetails.getSongLink();
                 lrcUrl = songDetails.getLrcLink();
 
-                if (songDetails != null && imgThumb != null) {
+                if (getActivity() != null && songDetails != null && imgThumb != null) {
                     Picasso.with(getActivity().getApplicationContext()).load(songDetails.getSongPicRadio()).into(imgThumb);
                 }
                 txtArtist.setText(song.getSongArtist());
@@ -190,7 +191,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
         txtLrc = (TextView) view.findViewById(R.id.fragment_song_detail_song_lrc);
         skBar = (SeekBar) view.findViewById(R.id.fragment_song_detail_song_seekbar);
 
-
         imgPlay.setOnClickListener(this);
 
     }
@@ -202,26 +202,33 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
         Intent intent = new Intent(getActivity().getApplicationContext(), PlaySongService.class);
         intent.putExtra("url", url);
 
-        new AsyTask(new AsyTask.CallBack() {
-            @Override
-            public void setJsonStr(String str) {
-                String[] singLinfLrc = str.split("\n");
+        Log.d("new", url + "===" + firstLoadLrc);
 
-                for (int i = 0; i < singLinfLrc.length; i++) {
-                    lrcs.add(singLinfLrc[i]);
+        if (firstLoadLrc) {
+
+            new AsyTask(new AsyTask.CallBack() {
+                @Override
+                public void setJsonStr(String str) {
+                    String[] singLinfLrc = str.split("\n");
+
+                    for (int i = 0; i < singLinfLrc.length; i++) {
+                        lrcs.add(singLinfLrc[i]);
+                    }
+
+                    Constants.lrcList = lrcs;
                 }
-            }
-        }).execute("http://ting.baidu.com" + lrcUrl);
+            }).execute("http://ting.baidu.com" + lrcUrl);
+            firstLoadLrc = false;
+        }
 
         intent.putExtra("tag", currentFragment);
         imgControlPlay = (ImageView) v;
         getActivity().getApplicationContext().startService(intent);
         if (!isPlaying) {
-            Log.d("media", "play...");
-            imgControlPlay.setBackgroundResource(android.R.drawable.ic_media_pause);
+            imgPlay.setBackgroundResource(android.R.drawable.ic_media_pause);
             isPlaying = true;
         } else {
-            imgControlPlay.setBackgroundResource(android.R.drawable.ic_media_play);
+            imgPlay.setBackgroundResource(android.R.drawable.ic_media_play);
             isPlaying = false;
         }
 
@@ -236,17 +243,16 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
             int cur = intent.getIntExtra(Constants.EXTRA_PROGREES_CUR, 0);
 
             currentF = intent.getIntExtra("tag", 0);
-
+            Constants.CURRENT_FRAGMENT = currentF;
             /**
              * 当前fragment是正在播放的fragment时才会更新
              */
             if (currentF == currentFragment) {
-
                 skBar.setEnabled(true);
 
                 String time = getTime(cur, false);
 
-                for (String lrc : lrcs) {
+                for (String lrc : Constants.lrcList) {
                     if (lrc.contains(time)) {
                         txtLrc.setText(lrc.substring(10));
                     }

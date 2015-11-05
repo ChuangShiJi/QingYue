@@ -24,6 +24,7 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
         int pageWidth = view.getWidth();
         int pageHeight = view.getHeight();
 
+
         if (position < -1) { // [-Infinity,-1)
             // This page is way off-screen to the left.
             view.setAlpha(0);

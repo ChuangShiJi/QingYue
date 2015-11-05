@@ -108,6 +108,7 @@ public class SongFragment extends Fragment {
         }
 
         songAdapter.notifyDataSetChanged();
+        viewPager.setCurrentItem(Constants.CURRENT_FRAGMENT);
     }
 
 }
