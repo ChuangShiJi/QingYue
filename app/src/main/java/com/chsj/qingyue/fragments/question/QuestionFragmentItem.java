@@ -1,9 +1,12 @@
 package com.chsj.qingyue.fragments.question;
 
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +14,8 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.chsj.qingyue.model.QuestionEntity;
+import com.chsj.qingyue.Constants;
 import com.chsj.qingyue.R;
-import com.chsj.qingyue.tasks.QuestionAsyncTask;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -38,6 +40,9 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
 
     private ImageView imageView;
     private AnimationDrawable anim;
+
+    //    使用本地广播管理器：
+    private LocalBroadcastManager localBroadcastManager;
 
     //获取实例的方法：
     public static QuestionFragmentItem getInstance(String url){
@@ -77,6 +82,14 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
         return view;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        //获取本地广播管理器：
+        localBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
+
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public void onResume() {
@@ -87,6 +100,12 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
         //初始化数据
         initData();
 
+    }
+
+    //失去焦点
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 
     private void initView() {
@@ -123,8 +142,21 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
                             Gson gson = new Gson();
                             questionEntity = gson.fromJson(quesJsonbject.toString(), token.getType());
 
+                            //发送广播
+                            if (questionEntity!=null){
+                                //该页面备选中后   发送广播数据：通过本地广播管理器  来发送广播：
+                                Intent intent = new Intent(Constants.GET_DATA_TO_SHARE);
+                                Bundle bundle = new Bundle();
+
+                                bundle.putSerializable(Constants.DATA_TO_EXTRA,questionEntity);//将网络数据传入
+                                intent.putExtras(bundle);
+
+                                localBroadcastManager.sendBroadcast(intent);
+                            }
+
                             //初始化视图：
                             initView();
+
                             anim.stop();
                             imageView.setVisibility(View.GONE);
                             scrollView.setVisibility(View.VISIBLE);
@@ -138,16 +170,13 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
         }).execute(getArguments().getString("url"));
     }
 
-    public QuestionEntity getQuestionEntity() {
-        return questionEntity;
-    }
-
-    //字符穿替换方法：
+    //字符串替换方法：
     public String replaceStrBr(String str){
         return str.replace("<br>", "\n");
     }
 
     private boolean isClick = true; //初始为  可以点击的
+
     @Override
     public void onClick(View v) {
 
@@ -157,7 +186,7 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
             isClick = false;
         }else{
             well = well-1;
-            anwserComment.setText("当前评论:"+well);
+            anwserComment.setText("当前评论:" + well);
             isClick = true;
         }
     }

@@ -7,14 +7,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+import java.util.HashMap;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.tencent.qq.QQ;
+
+public class LoginActivity extends AppCompatActivity implements PlatformActionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
     }
-
 
     //    点击事件的实现
     public void loginOperate(View view) {
@@ -39,6 +45,10 @@ public class LoginActivity extends AppCompatActivity {
                     break;
 //                第三方qq登录
                 case R.id.login_qq:
+                    ShareSDK.initSDK(this);
+                    Platform weibo = ShareSDK.getPlatform(this, QQ.NAME);
+                    weibo.setPlatformActionListener(this);
+                    weibo.authorize();
                     break;
 //                第三方新浪登录
                 case R.id.login_sina:
@@ -47,5 +57,21 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         }
+    }
+
+    @Override
+    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+        Toast.makeText(this, "授权成功whl", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onError(Platform platform, int i, Throwable throwable) {
+        Toast.makeText(this, "授权失败whl", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCancel(Platform platform, int i) {
+        Toast.makeText(this, "授权取消whl", Toast.LENGTH_SHORT).show();
     }
 }

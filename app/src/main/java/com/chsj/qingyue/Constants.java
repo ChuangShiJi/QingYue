@@ -22,7 +22,7 @@ public class Constants {
     public static final String ARTICLE_URL =
             "http://rest.wufazhuce.com/OneForWeb/one/getC_N";
 
-    public static final String POSITION_URL =
+    public static final String QUESTION_URL =
             "http://rest.wufazhuce.com/OneForWeb/one/getQ_N?" +
                     "strDate=null&strRow=%s";
 
@@ -32,7 +32,6 @@ public class Constants {
 
     //某一歌曲的详细信息
     public static final String SONG_DETAILS_URL = "http://ting.baidu.com/data/music/links?songIds=%s";
-
 
     /**
      * 发送广播数据
