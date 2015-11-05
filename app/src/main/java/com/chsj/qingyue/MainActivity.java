@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
                         oks.setImageUrl("http://img4.imgtn.bdimg.com/it/u=281071708,647194968&fm=21&gp=0.jpg");
 
+
                         // url仅在微信（包括好友和朋友圈）中使用
                         oks.setUrl(questionEntity.getSWebLk());
 //                        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
