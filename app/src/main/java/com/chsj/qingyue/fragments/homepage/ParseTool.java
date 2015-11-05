@@ -1,7 +1,7 @@
 package com.chsj.qingyue.fragments.homepage;
 
-import com.chsj.qingyue.fragments.object.Song;
-import com.chsj.qingyue.fragments.object.SongDetails;
+import com.chsj.qingyue.fragments.music.Song;
+import com.chsj.qingyue.fragments.music.SongDetails;
 
 import org.json.JSONArray;
 import org.json.JSONException;

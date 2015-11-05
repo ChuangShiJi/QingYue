@@ -87,7 +87,6 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
                     break;
             }
             if (intent != null) {
-
                 startActivity(intent);
             }
         }

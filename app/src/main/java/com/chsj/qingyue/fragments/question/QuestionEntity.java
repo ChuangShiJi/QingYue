@@ -1,9 +1,11 @@
-package com.chsj.qingyue.model;
+package com.chsj.qingyue.fragments.question;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import org.json.JSONObject;
+
+import java.io.Serializable;
 
 /**
  * ProjectName : com.chsj.qingyue
@@ -11,8 +13,7 @@ import org.json.JSONObject;
  * Email : zhaoq_hero163.com
  * On 2015/11/3 // 20:48
  */
-public class QuestionEntity {
-
+public class QuestionEntity implements Serializable {
 
     /**
      * entQNCmt : {"strId":"","strCnt":"","strD":"","pNum":"","upFg":""}

@@ -1,8 +1,9 @@
-package com.chsj.qingyue.adapters;
+package com.chsj.qingyue.fragments.question;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -29,11 +30,14 @@ public class QuestionFragmentItemAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return fragments.size();
+        int ret = 0;
+
+        if (fragments.size() != 0){
+             ret = fragments.size();
+        }
+
+        return ret;
     }
 
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        super.destroyItem(container, position, object);
-    }
+
 }

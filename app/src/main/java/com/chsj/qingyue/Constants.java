@@ -22,7 +22,7 @@ public class Constants {
     public static final String ARTICLE_URL =
             "http://rest.wufazhuce.com/OneForWeb/one/getC_N";
 
-    public static final String POSITION_URL =
+    public static final String QUESTION_URL =
             "http://rest.wufazhuce.com/OneForWeb/one/getQ_N?" +
                     "strDate=null&strRow=%s";
 
@@ -33,7 +33,6 @@ public class Constants {
     //某一歌曲的详细信息
     public static final String SONG_DETAILS_URL = "http://ting.baidu.com/data/music/links?songIds=%s";
 
-
     /**
      * 发送广播数据
      */
@@ -41,4 +40,14 @@ public class Constants {
 
     public static final String DATA_TO_EXTRA = "data";
 
+    //音乐总长度
+    public static final String EXTRA_PROGREES_MAX = "total";
+
+    //音乐当前进度
+    public static final String EXTRA_PROGREES_CUR = "current";
+
+    //更新进度的广播
+    public static final String ACTION_PROGRESS = "progress";
+    //更新播放的位置
+    public static final String ACTION_SEEKTO = "seek";
 }

@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
         ShareSDK.initSDK(this);
     }
 
-
     //    点击事件的实现
     public void loginOperate(View view) {
         if (view != null) {

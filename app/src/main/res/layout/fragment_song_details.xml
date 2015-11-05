@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.chsj.qingyue.fragments.object.SongDetailsFragment">
+    tools:context="com.chsj.qingyue.fragments.music.SongDetailsFragment">
 
     <ImageView
         android:id="@+id/fragment_song_details_song_thumb"
@@ -11,6 +11,7 @@
         android:layout_height="270dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:text="@string/hello_blank_fragment" />
 
@@ -65,5 +66,6 @@
         android:layout_marginTop="10dp"
         android:text="谭咏麟"
         android:textSize="16sp" />
+
 
 </RelativeLayout>
