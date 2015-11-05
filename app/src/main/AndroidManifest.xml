@@ -37,15 +37,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SettingActivity"
-            android:label="@string/title_activity_setting"></activity>
+            android:label="@string/title_activity_setting">
+        </activity>
+
         <activity
             android:name=".RegardActivity"
-            android:label="@string/title_activity_regard"></activity>
+            android:label="@string/title_activity_regard">
+        </activity>
+
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login">
+        </activity>
+
         <activity
             android:name=".SettingNetActivity"
             android:theme="@style/MyDialogStyle" />

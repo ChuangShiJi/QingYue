@@ -54,24 +54,23 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
                 case R.id.login_sina:
                     Toast.makeText(this, "新浪登录", Toast.LENGTH_SHORT).show();
                     break;
-
             }
         }
     }
 
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-        Toast.makeText(this, "授权成功whl", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "授权成功", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onError(Platform platform, int i, Throwable throwable) {
-        Toast.makeText(this, "授权失败whl", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onCancel(Platform platform, int i) {
-        Toast.makeText(this, "授权取消whl", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "授权取消", Toast.LENGTH_SHORT).show();
     }
 }

@@ -9,9 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.chsj.qingyue.Constants;
 import com.chsj.qingyue.R;
+import com.chsj.qingyue.ZoomOutPageTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,9 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
 
         viewPager.setAdapter(adapter);
 
+        //设置   动画：
+        viewPager.setPageTransformer(true,new ZoomOutPageTransformer());
+
         viewPager.addOnPageChangeListener(this);
 
         return view;
@@ -71,7 +76,11 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+        if (position == 0){
+            Toast.makeText(getActivity(),"当前已是第一页",Toast.LENGTH_SHORT).show();
+        }else if(position == 9){
+            Toast.makeText(getActivity(),"当前已是最后一夜",Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
