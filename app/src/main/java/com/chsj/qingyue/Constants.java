@@ -41,4 +41,14 @@ public class Constants {
 
     public static final String DATA_TO_EXTRA = "data";
 
+    //音乐总长度
+    public static final String EXTRA_PROGREES_MAX = "total";
+
+    //音乐当前进度
+    public static final String EXTRA_PROGREES_CUR = "current";
+
+    //更新进度的广播
+    public static final String ACTION_PROGRESS = "progress";
+    //更新播放的位置
+    public static final String ACTION_SEEKTO = "seek";
 }

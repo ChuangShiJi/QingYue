@@ -3,6 +3,7 @@ package com.chsj.qingyue.fragments.homepage;
 
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -54,6 +55,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     //占位的帧布局
     private static FrameLayout frameLayout;
     private static boolean isImgShow;
+    private ImageView imageView;
+    private AnimationDrawable anim;
 
 
     public HomePageFragment() {
@@ -76,6 +79,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         View ret = null;
 
         ret = inflater.inflate(R.layout.fragment_home_page, container, false);
+        imageView = (ImageView) ret.findViewById(R.id.fragment_home_progress_loading);
+
         recyclerView = (RecyclerView) ret.findViewById(R.id.fragment_homepage_recycler_view);
         imgShow = (ImageView) ret.findViewById(R.id.fragment_home_page_showbig_img);
         frameLayout = (FrameLayout) ret.findViewById(R.id.fragment_home_page_framelayout);
@@ -136,6 +141,11 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     public void onResume() {
 
         super.onResume();
+
+
+        anim = (AnimationDrawable) imageView.getBackground();
+        anim.start();
+
         datas.clear();
 
         for (int i = 1; i <= 10; i++) {
@@ -147,7 +157,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                     Log.d("str", jsonStr + "====");
                     HpEntity hpEntity = ParseTool.parse(jsonStr);
                     adapter.notifyDataSetChanged();
-
+                    anim.stop();
+                    imageView.setVisibility(View.GONE);
                     datas.add(hpEntity);
                 }
             }).execute(String.format(Constants.URL_HOME_PAGE, i));
@@ -181,6 +192,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         View view = LayoutInflater.from(getActivity().getApplicationContext())
                 .inflate(R.layout.dialog_view, null);
+
 
         TextView txtLoad = (TextView) view.findViewById(R.id.dialog_view_load_img);
         TextView txtCancle = (TextView) view.findViewById(R.id.dialog_view_cancle);

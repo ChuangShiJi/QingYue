@@ -1,12 +1,14 @@
-package com.chsj.qingyue.fragments.object;
+package com.chsj.qingyue.fragments.music;
 
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.chsj.qingyue.Constants;
 import com.chsj.qingyue.R;
@@ -33,6 +35,11 @@ public class SongFragment extends Fragment {
 
     private List<Song> songs;
 
+
+    private ImageView imgPro;
+
+    private AnimationDrawable anim;
+
     public SongFragment() {
         // Required empty public constructor
     }
@@ -45,14 +52,22 @@ public class SongFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_song, container, false);
 
+        imgPro = (ImageView) view.findViewById(R.id.fragment_song_pro);
         viewPager = (ViewPager) view.findViewById(R.id.fragment_song_view_pager);
         datas = new ArrayList<Fragment>();
         songAdapter = new SongAdapter(getChildFragmentManager(), datas);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setAdapter(songAdapter);
 
+        viewPager.setOffscreenPageLimit(10);
+
         //获取歌曲列表
         initSongs();
+
+        //启动加载动画
+        anim = (AnimationDrawable) imgPro.getBackground();
+        anim.start();
+
 
         return view;
     }
@@ -67,6 +82,9 @@ public class SongFragment extends Fragment {
                     songs = ParseTool.getSongs(jsonObject);
 
                     initFragment();
+
+                    anim.stop();
+                    imgPro.setVisibility(View.INVISIBLE);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -85,6 +103,7 @@ public class SongFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putSerializable("Song", songs.get(i));
             songDetailsFragment.setArguments(bundle);
+            bundle.putInt("tag", i);
             datas.add(songDetailsFragment);
         }
 

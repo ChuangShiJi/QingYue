@@ -4,9 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.media.Image;
-import android.net.Uri;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +14,9 @@ import android.widget.Toast;
 
 import com.chsj.qingyue.fragments.article.ArticleFragment;
 import com.chsj.qingyue.fragments.homepage.HomePageFragment;
-import com.chsj.qingyue.fragments.object.SongFragment;
+import com.chsj.qingyue.fragments.music.SongFragment;
 import com.chsj.qingyue.fragments.person.PersonFragment;
 import com.chsj.qingyue.fragments.question.QuestionFragment;
-import com.chsj.qingyue.fragments.question.QuestionFragmentItem;
 import com.chsj.qingyue.tools.NetWorkUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
