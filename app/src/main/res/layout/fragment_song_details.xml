@@ -1,9 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.chsj.qingyue.fragments.music.SongDetailsFragment">
+
 
     <ImageView
         android:id="@+id/fragment_song_details_song_thumb"
@@ -23,7 +25,6 @@
         android:layout_below="@id/fragment_song_details_song_thumb"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="歌词"
         android:textSize="20sp" />
 
     <TextView
@@ -33,7 +34,6 @@
         android:layout_alignRight="@id/fragment_song_detail_song_lrc"
         android:layout_below="@id/fragment_song_detail_song_lrc"
         android:layout_marginTop="10dp"
-        android:text="水中花"
         android:textSize="20sp" />
 
     <TextView
@@ -43,7 +43,6 @@
         android:layout_alignRight="@id/fragment_song_detail_song_title"
         android:layout_below="@id/fragment_song_detail_song_title"
         android:layout_marginTop="10dp"
-        android:text="谭咏麟"
         android:textSize="16sp" />
 
 
@@ -63,9 +62,8 @@
         android:layout_alignRight="@id/fragment_song_detail_song_title"
         android:layout_below="@id/fragment_song_detail_song_play"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="谭咏麟"
         android:textSize="16sp" />
-
 
 </RelativeLayout>

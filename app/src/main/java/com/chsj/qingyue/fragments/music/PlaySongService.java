@@ -49,7 +49,6 @@ public class PlaySongService extends Service {
         super.onCreate();
         mediaPlayer = new MediaPlayer();
 
-
         // 获取本地广播管理器对象
         lbMgr = LocalBroadcastManager.getInstance(getApplicationContext());
 
@@ -83,12 +82,10 @@ public class PlaySongService extends Service {
             mediaPlayer.reset();
             try {
                 mediaPlayer.setDataSource(url);
-                Log.d("media", "开始准备音乐资源");
                 mediaPlayer.prepareAsync();
                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer mp) {
-                        Log.d("media", "开始播放");
                         mediaPlayer.start();
                         new ProgressThread().start();
                     }
@@ -112,6 +109,7 @@ public class PlaySongService extends Service {
         mediaPlayer.stop();
         mediaPlayer.release();
         lbMgr.unregisterReceiver(seekReceiver);
+        new ProgressThread().interrupt();
     }
 
     private class ProgressThread extends Thread {
@@ -119,19 +117,23 @@ public class PlaySongService extends Service {
         @Override
         public void run() {
 
-            while (mediaPlayer != null && mediaPlayer.isPlaying()) {
-
-                sumLen = mediaPlayer.getDuration();
-                int currentPosition = mediaPlayer.getCurrentPosition();
-                Intent intent = new Intent(Constants.ACTION_PROGRESS);
-                intent.putExtra(Constants.EXTRA_PROGREES_MAX, sumLen);
-                intent.putExtra(Constants.EXTRA_PROGREES_CUR, currentPosition);
-                intent.putExtra("tag", currentFragment);
-                lbMgr.sendBroadcast(intent);// 发送播放的进度广播
+            if (!Constants.isExit) {
 
                 try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
+                    Log.d("thread", Constants.isExit + "");
+                    while (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                        sumLen = mediaPlayer.getDuration();
+                        int currentPosition = mediaPlayer.getCurrentPosition();
+                        Intent intent = new Intent(Constants.ACTION_PROGRESS);
+                        intent.putExtra(Constants.EXTRA_PROGREES_MAX, sumLen);
+                        intent.putExtra(Constants.EXTRA_PROGREES_CUR, currentPosition);
+                        intent.putExtra("tag", currentFragment);
+                        lbMgr.sendBroadcast(intent);// 发送播放的进度广播
+
+                        Thread.sleep(200);
+                    }
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -145,7 +147,6 @@ public class PlaySongService extends Service {
             // TODO Auto-generated method stub
             int seekPosition = intent.getIntExtra(Constants.EXTRA_PROGREES_CUR, 0);
 
-            Log.d("current1", seekPosition + "==");
             mediaPlayer.seekTo(seekPosition);//设置播放器的播放位置
         }
     }
