@@ -32,13 +32,11 @@
     </RelativeLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="1"
-        >
+        android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/fragment_id"
@@ -56,40 +54,33 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/main_tab_item_first"
                     style="@style/AppTheme.MainSelectItem"
-                    android:checked="true"
                     android:background="@drawable/first_btn_selector"
-                    />
+                    android:checked="true" />
 
                 <RadioButton
                     android:id="@+id/main_tab_item_article"
                     style="@style/AppTheme.MainSelectItem"
-                    android:background="@drawable/two_btn_selector"
-                    />
+                    android:background="@drawable/two_btn_selector" />
 
                 <RadioButton
                     android:id="@+id/main_tab_item_problem"
                     style="@style/AppTheme.MainSelectItem"
-                    android:background="@drawable/three_btn_selector"
-                    />
+                    android:background="@drawable/three_btn_selector" />
 
                 <RadioButton
                     android:id="@+id/main_tab_item_things"
                     style="@style/AppTheme.MainSelectItem"
-                    android:background="@drawable/four_btn_selector"
-                    />
+                    android:background="@drawable/four_btn_selector" />
 
                 <RadioButton
                     android:id="@+id/main_tab_item_personal"
                     style="@style/AppTheme.MainSelectItem"
-                    android:background="@drawable/five_btn_selector"
-                  />
-
+                    android:background="@drawable/five_btn_selector" />
             </RadioGroup>
         </FrameLayout>
 

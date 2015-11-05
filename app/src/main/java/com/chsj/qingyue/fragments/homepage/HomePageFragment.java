@@ -146,8 +146,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         anim = (AnimationDrawable) imageView.getBackground();
         anim.start();
 
+        //
         datas.clear();
-
         for (int i = 1; i <= 10; i++) {
 
             new AsyTask(new AsyTask.CallBack() {
