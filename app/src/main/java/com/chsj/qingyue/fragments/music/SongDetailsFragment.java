@@ -161,8 +161,7 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
      */
     private void initData() {
 
-
-        //初始化歌词
+        //初始化歌词....
         lrcs = new ArrayList<String>();
 
         new AsyTask(new AsyTask.CallBack() {
@@ -170,7 +169,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
             public void setJsonStr(String str) {
 
                 songDetails = ParseTool.getSongDetail(str);
-
                 url = songDetails.getSongLink();
                 lrcUrl = songDetails.getLrcLink();
 
@@ -179,7 +177,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 }
                 txtArtist.setText(song.getSongArtist());
                 txtTitle.setText(song.getSongTitle());
-
 
             }
         }).execute(String.format(Constants.SONG_DETAILS_URL, songId));
