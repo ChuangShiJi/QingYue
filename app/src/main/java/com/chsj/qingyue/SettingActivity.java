@@ -2,11 +2,19 @@ package com.chsj.qingyue;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
+import cn.sharesdk.wechat.friends.Wechat;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -24,7 +32,7 @@ public class SettingActivity extends AppCompatActivity {
 //                TODO 设置界面的功能实现
 //                模式设置
                 case R.id.setting_model:
-                    Toast.makeText(this, "切换模式", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.switch_mode), Toast.LENGTH_SHORT).show();
                     break;
 //                应用评分
                 case R.id.setting_grade:
@@ -37,6 +45,8 @@ public class SettingActivity extends AppCompatActivity {
                     break;
 //                退出当前登录
                 case R.id.setting_logout:
+                    logout();
+
                     break;
 //                回退按键,退出当前的Activity
                 case R.id.setting_back:
@@ -46,6 +56,34 @@ public class SettingActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+//    退出当前登录
+
+    private void logout() {
+//        初始化sharesdk
+        ShareSDK.initSDK(this);
+        Platform qq = ShareSDK.getPlatform(this, QQ.NAME);
+        Platform sina = ShareSDK.getPlatform(this, SinaWeibo.NAME);
+        Platform wechat = ShareSDK.getPlatform(this, Wechat.NAME);
+        boolean logout = false;
+        if (qq.isValid()) {
+            qq.removeAccount();
+            logout = true;
+        } else if (sina.isValid()) {
+            sina.removeAccount();
+            logout = true;
+        } else if (wechat.isValid()) {
+            wechat.removeAccount();
+            logout = true;
+        }
+        if (logout) {
+            Toast.makeText(this, getResources().getString(R.string.exit_now_login_in), Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, getResources().getString(R.string.now_no_account_login), Toast.LENGTH_SHORT).show();
+        }
+
+//isValid和removeAccount不开启线程，会直接返回。
     }
 
 

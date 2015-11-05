@@ -273,11 +273,8 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 imgPlay.setBackgroundResource(android.R.drawable.ic_media_play);
                 txtLrc.setText("");
             }
-
-
         }
     }
-
 
     /**
      * 获取当前播放时间
@@ -287,7 +284,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
      * @return
      */
     public static String getTime(int time, boolean add) {
-
 
         StringBuilder builder = new StringBuilder();
         int m = time / 1000 / 60;
@@ -299,8 +295,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
             builder.append(m / 10).append(m % 10).append(":").append(s / 10).append(s % 10);
         }
         return builder.toString();
-
-
     }
 
 }

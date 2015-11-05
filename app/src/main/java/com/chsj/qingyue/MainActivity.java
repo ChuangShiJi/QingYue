@@ -164,10 +164,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
                         oks.setTitleUrl(questionEntity.getSWebLk());
                         // text是分享文本，所有平台都需要这个字段
-                        oks.setText(questionEntity.getStrQuestionTitle());
+                        oks.setText(questionEntity.getStrQuestionTitle()+questionEntity.getSWebLk());
                         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
 //                        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
                         oks.setImageUrl("http://img4.imgtn.bdimg.com/it/u=281071708,647194968&fm=21&gp=0.jpg");
+
 
                         // url仅在微信（包括好友和朋友圈）中使用
                         oks.setUrl(questionEntity.getSWebLk());
@@ -187,9 +188,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 } else {
-                    Toast.makeText(this, "当前无数据可分享", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.now_no_data_to_share), Toast.LENGTH_SHORT).show();
                 }
-
                 break;
 
         }

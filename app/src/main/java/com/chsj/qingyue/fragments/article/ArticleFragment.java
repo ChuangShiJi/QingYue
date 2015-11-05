@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chsj.qingyue.R;
+import com.chsj.qingyue.ZoomOutPageTransformer;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -55,6 +56,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
         View view = inflater.inflate(R.layout.article_fragment, container, false);
 
         viewPager = (ViewPager) view.findViewById(R.id.article_fragment_viewpager);
+        viewPager.setPageTransformer(true,new ZoomOutPageTransformer());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(this);
         return view;
@@ -73,7 +75,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
                     isRefresh = false;
                 }
                 if (positionOffset == 0 && isRefresh) {
-                    Toast.makeText(getActivity(), "已是最新内容", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.now_is_lastest_content), Toast.LENGTH_SHORT).show();
                     isRefresh = false;
 
                 }
@@ -83,7 +85,7 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
                     isRefresh = false;
                 }
                 if (positionOffset == 0 && isRefresh) {
-                    Toast.makeText(getActivity(), "已无更多内容", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.now_is_not_content), Toast.LENGTH_SHORT).show();
                     isRefresh = false;
                 }
             }

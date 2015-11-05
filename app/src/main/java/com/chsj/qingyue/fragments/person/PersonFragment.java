@@ -13,6 +13,11 @@ import com.chsj.qingyue.LoginActivity;
 import com.chsj.qingyue.R;
 import com.chsj.qingyue.RegardActivity;
 import com.chsj.qingyue.SettingActivity;
+import com.squareup.picasso.Picasso;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.tencent.qq.QQ;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +44,23 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         moreAppTV = (TextView) inflate.findViewById(R.id.person_moreApp);
         moreAppTV.setOnClickListener(this);
         return inflate;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ShareSDK.initSDK(getActivity());
+        Platform qq = ShareSDK.getPlatform(getActivity(), QQ.NAME);
+        String accessToken = qq.getDb().getToken(); // 获取授权token
+        String openId = qq.getDb().getUserId(); // 获取用户在此平台的ID
+        String nickname = qq.getDb().get("nickname"); // 获取用户昵称
+// 接下来执行您要的操作
+//        Picasso.with(getActivity()).load().into(loginTV);
+        if (nickname != null&&!nickname.isEmpty()) {
+
+            loginTV.setText(nickname);
+
+        }
     }
 
     //监听事件实现不同界面的跳转

@@ -2,6 +2,7 @@ package com.chsj.qingyue;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,8 +12,11 @@ import java.util.HashMap;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.PlatformDb;
 import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.wechat.friends.Wechat;
 
 public class LoginActivity extends AppCompatActivity implements PlatformActionListener {
 
@@ -20,6 +24,8 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+//        初始化ShareSDK
+        ShareSDK.initSDK(this);
     }
 
     //    点击事件的实现
@@ -42,36 +48,45 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
                     break;
 //                第三方微信登录
                 case R.id.login_wechat:
+                    Platform wechat = ShareSDK.getPlatform(this, Wechat.NAME);
+                    wechat.setPlatformActionListener(this);
+                    wechat.authorize();
                     break;
 //                第三方qq登录
                 case R.id.login_qq:
-                    ShareSDK.initSDK(this);
-                    Platform weibo = ShareSDK.getPlatform(this, QQ.NAME);
-                    weibo.setPlatformActionListener(this);
-                    weibo.authorize();
+
+                    Platform qq = ShareSDK.getPlatform(this, QQ.NAME);
+                    qq.setPlatformActionListener(this);
+                    qq.authorize();
                     break;
 //                第三方新浪登录
                 case R.id.login_sina:
-                    Toast.makeText(this, "新浪登录", Toast.LENGTH_SHORT).show();
+                    Platform sina = ShareSDK.getPlatform(this, SinaWeibo.NAME);
+                    sina.setPlatformActionListener(this);
+                    sina.authorize();
                     break;
-
             }
         }
     }
 
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-        Toast.makeText(this, "授权成功whl", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, getResources().getString(R.string.authorization_success), Toast.LENGTH_SHORT).show();
+        String name=platform.getDb().getUserName();
+        String userIcon=platform.getDb().getUserIcon();
 
     }
 
     @Override
     public void onError(Platform platform, int i, Throwable throwable) {
-        Toast.makeText(this, "授权失败whl", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.authorization_fail), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onCancel(Platform platform, int i) {
-        Toast.makeText(this, "授权取消whl", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.authorization_cancle), Toast.LENGTH_SHORT).show();
+        String name=platform.getDb().getUserName();
+        String userIcon=platform.getDb().getUserIcon();
     }
 }

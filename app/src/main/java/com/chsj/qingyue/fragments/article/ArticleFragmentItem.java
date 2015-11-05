@@ -83,6 +83,7 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
     public void resultComplete(ArticleEntity articleEntity) {
         authorNameTV.setText(articleEntity.getStrContAuthor());
         String time = articleEntity.getStrContMarketTime();
+
         String times[] = time.split("-");
         if (times != null) {
             int month = Integer.parseInt(times[1]);
