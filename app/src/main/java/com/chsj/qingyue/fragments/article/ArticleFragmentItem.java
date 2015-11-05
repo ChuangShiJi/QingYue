@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.chsj.qingyue.Constants;
@@ -23,6 +24,8 @@ import com.chsj.qingyue.R;
 public class ArticleFragmentItem extends Fragment implements ArticleTask.ArticleCompleteListener, CompoundButton.OnCheckedChangeListener {
     //    Fragment中当前页数
     private int page;
+    private int praiseNum;
+    private ScrollView scrollView;
     //    post请求地址中的参数
     private LinearLayout linearLayout;
     private String paramers = "strDate=null&strRow=%d";
@@ -63,14 +66,16 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
         contTitleTV = (TextView) view.findViewById(R.id.contTitle_article_fragment_item);
         contentTV = (TextView) view.findViewById(R.id.content_article_fragment_item);
         praiseBtn = (CheckBox) view.findViewById(R.id.praiseNumber_article_fragment_item);
-        praiseBtn.setVisibility(View.INVISIBLE);
+//        praiseBtn.setVisibility(View.INVISIBLE);
         praiseBtn.setOnCheckedChangeListener(this);
         weixinTV = (TextView) view.findViewById(R.id.weixin_article_fragment_item);
         authorIntroduce = (TextView) view.findViewById(R.id.authorIntroduce_article_fragment_item);
         authorNameW_article_fragment_item = (TextView) view.findViewById(R.id.authorNameW_article_fragment_item);
         introduce_article_fragment_item = (TextView) view.findViewById(R.id.introduce_article_fragment_item);
         linearLayout = (LinearLayout) view.findViewById(R.id.linearlayout_article_fragment_item);
-        linearLayout.setVisibility(View.INVISIBLE);
+        scrollView = (ScrollView) view.findViewById(R.id.scrollView_article_fragment_item);
+        scrollView.setVisibility(View.INVISIBLE);
+//        linearLayout.setVisibility(View.INVISIBLE);
     }
 
     //    异步任务返回接口，字符的分割和UI的显示
@@ -93,12 +98,14 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
         contentTV.setText(str[0].replace("<br>", "\n"));
 
         praiseBtn.setText(articleEntity.getStrPraiseNumber());
+        praiseNum = Integer.parseInt(articleEntity.getStrPraiseNumber());
         weixinTV.setText(articleEntity.getSWbN());
         authorIntroduce.setText(articleEntity.getStrContAuthorIntroduce());
         authorNameW_article_fragment_item.setText(articleEntity.getStrContAuthor());
         introduce_article_fragment_item.setText(str[1].substring(0, str[1].indexOf("。") + 1));
-        linearLayout.setVisibility(View.VISIBLE);
-        praiseBtn.setVisibility(View.VISIBLE);
+//        linearLayout.setVisibility(View.VISIBLE);
+//        praiseBtn.setVisibility(View.VISIBLE);
+        scrollView.setVisibility(View.VISIBLE);
 
     }
 
@@ -106,7 +113,12 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //        ArticleTask task = (ArticleTask) new ArticleTask(this)
 //                .execute(Constants.ARTICLE_URL, String.format(paramers, page));
-        praiseBtn.setText("34324");
+        if (isChecked) {
+            praiseNum++;
+        } else {
+            praiseNum--;
+        }
+        praiseBtn.setText("" + praiseNum);
 //        TODO 点赞处理
     }
 }

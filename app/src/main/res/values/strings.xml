@@ -8,5 +8,7 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_setting_net">SettingNetActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_regard">RegardActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
