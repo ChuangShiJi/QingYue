@@ -99,11 +99,12 @@
     <orderEntry type="library" exported="" name="ShareSDK-Alipay-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-22.2.0" level="project" />
-    <orderEntry type="library" exported="" name="cardview-v7-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-QQ-2.6.3" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="MobTools" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-QZone-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.2.0" level="project" />
@@ -113,5 +114,8 @@
     <orderEntry type="library" exported="" name="appcompat-v7-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Core-2.6.3" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-QZone-2.6.3" level="project" />
+    <orderEntry type="library" exported="" name="design-22.2.0" level="project" />
+    <orderEntry type="library" exported="" name="cardview-v7-22.2.0" level="project" />
   </component>
 </module>
