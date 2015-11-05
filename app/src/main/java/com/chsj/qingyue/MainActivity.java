@@ -4,13 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.media.Image;
-import android.net.Uri;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -19,12 +15,11 @@ import android.widget.Toast;
 import com.chsj.qingyue.fragments.article.ArticleEntity;
 import com.chsj.qingyue.fragments.article.ArticleFragment;
 import com.chsj.qingyue.fragments.homepage.HomePageFragment;
-import com.chsj.qingyue.fragments.object.Song;
-import com.chsj.qingyue.fragments.object.SongFragment;
+import com.chsj.qingyue.fragments.music.Song;
+import com.chsj.qingyue.fragments.music.SongFragment;
 import com.chsj.qingyue.fragments.person.PersonFragment;
 import com.chsj.qingyue.fragments.question.QuestionEntity;
 import com.chsj.qingyue.fragments.question.QuestionFragment;
-import com.chsj.qingyue.fragments.question.QuestionFragmentItem;
 import com.chsj.qingyue.tools.NetWorkUtils;
 
 import cn.sharesdk.framework.ShareSDK;
@@ -124,17 +119,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.title_share:
 
                 if (shareBroadcastReceiver.data != null) {
-                    if(shareBroadcastReceiver.data instanceof ArticleEntity){
+                    if (shareBroadcastReceiver.data instanceof ArticleEntity) {
                         //分享   首页的数据
 
 
-
-                    }else if(shareBroadcastReceiver.data instanceof ArticleEntity){
+                    } else if (shareBroadcastReceiver.data instanceof ArticleEntity) {
                         //分享   文章的数据
 
 
-
-                    }else if(shareBroadcastReceiver.data instanceof QuestionEntity){
+                    } else if (shareBroadcastReceiver.data instanceof QuestionEntity) {
                         //分享问题页的数据
 
                         //判断数据类型：
@@ -169,15 +162,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // 启动分享GUI
                         oks.show(this);
 
-                    }else if(shareBroadcastReceiver.data instanceof Song){
+                    } else if (shareBroadcastReceiver.data instanceof Song) {
                         //分享歌曲信息
 
 
-
-
                     }
-                }else{
-                    Toast.makeText(this,"当前无数据可分享",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "当前无数据可分享", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -193,10 +184,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     //分享广播接受者
     class ShareBroadcastReceiver extends BroadcastReceiver {
         private Object data;//传入的数据：
+
         @Override
         public void onReceive(Context context, Intent intent) {
             Bundle bundle = intent.getExtras();

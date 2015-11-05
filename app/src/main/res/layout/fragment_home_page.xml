@@ -28,4 +28,11 @@
             android:scaleType="centerCrop" />
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/fragment_home_progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@anim/waiting_anim"
+        android:visibility="visible" />
 </FrameLayout>

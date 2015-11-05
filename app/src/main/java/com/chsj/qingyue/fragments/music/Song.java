@@ -1,4 +1,4 @@
-package com.chsj.qingyue.fragments.object;
+package com.chsj.qingyue.fragments.music;
 
 import java.io.Serializable;
 

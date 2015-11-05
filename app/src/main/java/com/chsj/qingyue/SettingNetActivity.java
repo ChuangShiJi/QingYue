@@ -16,7 +16,6 @@ public class SettingNetActivity extends Activity {
         setContentView(R.layout.activity_setting_net);
 
         setTitle("");
-
         Window window = getWindow();
 
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, 500);

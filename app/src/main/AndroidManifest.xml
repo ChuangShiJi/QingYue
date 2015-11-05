@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chsj.qingyue">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--sharedsdk 权限-->
 
@@ -17,6 +17,8 @@
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,8 +26,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
 
         <activity
             android:name=".SplashActivity"
@@ -38,17 +39,16 @@
         </activity>
         <activity
             android:name=".SettingActivity"
-            android:label="@string/title_activity_setting">
-        </activity>
+            android:label="@string/title_activity_setting"></activity>
         <activity
             android:name=".RegardActivity"
-            android:label="@string/title_activity_regard">
-        </activity>
+            android:label="@string/title_activity_regard"></activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login">
-        </activity>
-
+            android:label="@string/title_activity_login"></activity>
+        <activity
+            android:name=".SettingNetActivity"
+            android:theme="@style/MyDialogStyle" />
         <!-- shardsdk 的Activity添加-->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -77,6 +77,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <service android:name=".fragments.music.PlaySongService" />
     </application>
 
 </manifest>
