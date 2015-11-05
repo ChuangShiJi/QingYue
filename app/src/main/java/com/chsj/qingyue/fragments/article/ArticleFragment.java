@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chsj.qingyue.R;
-import com.chsj.qingyue.fragments.music.ZoomOutPageTransformer;
+import com.chsj.qingyue.ZoomOutPageTransformer;
 
 import java.util.LinkedList;
 import java.util.List;
