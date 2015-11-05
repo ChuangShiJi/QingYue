@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.chsj.qingyue.Constants;
@@ -21,7 +23,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class QuestionFragment extends Fragment implements ViewPager.OnPageChangeListener {
+public class QuestionFragment extends Fragment implements ViewPager.OnPageChangeListener, View.OnClickListener {
 
 
 
@@ -33,6 +35,10 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
     private List<Fragment> fragments;
 
     private QuestionFragmentItemAdapter adapter;
+
+
+    private RelativeLayout canShare;
+    private ImageView noShare;
 
     public QuestionFragment() {
     }
@@ -57,12 +63,16 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
 
         viewPager = (ViewPager) view.findViewById(R.id.position_fragment_viewpager);
 
+        canShare = (RelativeLayout) view.findViewById(R.id.question_fragment_to_share);
+        noShare = (ImageView) view.findViewById(R.id.question_no_can_share);
+
         viewPager.setAdapter(adapter);
 
         //设置   动画：
         viewPager.setPageTransformer(true,new ZoomOutPageTransformer());
 
         viewPager.addOnPageChangeListener(this);
+        noShare.setOnClickListener(this);
 
         return view;
     }
@@ -97,5 +107,14 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
     public void onDestroy() {
         super.onDestroy();
     }
+
+
+    @Override
+    public void onClick(View v) {
+        //添加单击事件：当单击x的图标时    提示信息消失：
+        canShare.setVisibility(View.GONE);
+    }
+
+
 
 }
