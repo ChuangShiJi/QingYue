@@ -89,28 +89,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.main_tab_item_first:
-//                               getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.fragment_id, new HomePageFragment())
-//                        .commit();
 
                 switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_HOME);
 
                 break;
 
             case R.id.main_tab_item_article:
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.fragment_id, new ArticleFragment())
-//                        .commit();
                 switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_ARTICLE);
 
                 break;
 
             case R.id.main_tab_item_problem:
-
-
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.fragment_id, new QuestionFragment())
-//                        .commit();
 
                 switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_QUESTION);
 
@@ -118,18 +107,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.main_tab_item_things:
 
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.fragment_id, new SongFragment())
-//                        .commit();
                 switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_SONG);
-
 
                 break;
 
             case R.id.main_tab_item_personal:
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.fragment_id, new PersonFragment())
-//                        .commit();
                 switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_PERSON);
 
                 break;
@@ -169,7 +151,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
                         oks.setImageUrl("http://img4.imgtn.bdimg.com/it/u=281071708,647194968&fm=21&gp=0.jpg");
 
-
                         // url仅在微信（包括好友和朋友圈）中使用
                         oks.setUrl(questionEntity.getSWebLk());
 //                        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
@@ -191,7 +172,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, getResources().getString(R.string.now_no_data_to_share), Toast.LENGTH_SHORT).show();
                 }
                 break;
-
         }
     }
 
@@ -206,9 +186,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         //取消注册  广播
         localBroadcastManager.unregisterReceiver(shareBroadcastReceiver);
+
         Intent intent = new Intent(this, PlaySongService.class);
         Constants.isExit = true;
         stopService(intent);
+
         super.onDestroy();
     }
 
@@ -227,18 +209,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * 切换Fragment，防止被重新初始化
-     *
      * @param from
      * @param to
      */
     public void switchContent(Fragment from, Fragment to) {
         if (Constants.ACTIVITY_CURRENT_FRAGMENT != to) {
+
             Constants.ACTIVITY_CURRENT_FRAGMENT = to;
             FragmentTransaction transaction = mFragmentMan.beginTransaction();
 
             if (!to.isAdded()) {    // 先判断是否被add过
                 transaction.hide(from).add(R.id.fragment_id, to)
-                        .commit(); // 隐藏当前的fragment，add下一个到Activity中
+                        .commit();  //隐藏当前的fragment，add下一个到Activity中
             } else {
                 transaction.hide(from).show(to).commit(); // 隐藏当前的fragment，显示下一个
             }

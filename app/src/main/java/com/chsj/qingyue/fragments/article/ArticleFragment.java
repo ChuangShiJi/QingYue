@@ -106,9 +106,6 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
             count = 0;
 
         }
-
-
     }
-
 
 }
