@@ -25,7 +25,6 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
     private ArticleFragmentAdapter adapter;
     private List<ArticleFragmentItem> datas;
     private boolean isRefresh;
-    private boolean isLoadFinish;
     private int count;
 
     public ArticleFragment() {
@@ -104,7 +103,6 @@ public class ArticleFragment extends Fragment implements ViewPager.OnPageChangeL
         if (state == ViewPager.SCROLL_STATE_IDLE) {
             isRefresh = true;
             count = 0;
-
         }
     }
 

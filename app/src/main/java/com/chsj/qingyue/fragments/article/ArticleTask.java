@@ -20,8 +20,6 @@ public class ArticleTask extends AsyncTask<String, Void, ArticleEntity> {
 
     public ArticleTask(ArticleCompleteListener listener) {
         this.listener = listener;
-
-
     }
 
     @Override

@@ -121,10 +121,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (shareBroadcastReceiver.data != null) {
                     if (shareBroadcastReceiver.data instanceof ArticleEntity) {
-                        //分享   首页的数据
-
-
-                    } else if (shareBroadcastReceiver.data instanceof ArticleEntity) {
                         //分享   文章的数据
 
 
