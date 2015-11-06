@@ -96,5 +96,8 @@
     <string name="person_about">about</string>
     <string name="person_recommend_app">recommend app</string>
 
+    <!--个人中心-->
+    <string name="title_activity_personal_center">personal_center</string>
+
 
 </resources>

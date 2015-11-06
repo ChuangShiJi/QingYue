@@ -89,10 +89,6 @@
     <string name="person_setting">设置</string>
     <string name="person_about">关于</string>
     <string name="person_recommend_app">推荐应用</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_setting">SettingActivity</string>
-    <string name="title_activity_regard">RegardActivity</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_personal_center">PersonalCenterActivity</string>
+<!--个人中心-->
+<string name="title_activity_personal_center">个人中心</string>
 </resources>

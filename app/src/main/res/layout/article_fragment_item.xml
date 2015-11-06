@@ -2,130 +2,127 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/allWidthAndHeightMatchParent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scrollView_article_fragment_item"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.chsj.qingyue.fragments.article.ArticleFragment">
+
     <ScrollView
-        android:id="@+id/scrollView_article_fragment_item"
+
         android:layout_width="match_parent"
+        android:id="@+id/scrollView_article_fragment_item"
         android:layout_height="match_parent">
 
 
-    <android.support.v7.widget.CardView
-        style="@style/allWidthAndHeightMatchParent"
-        android:padding="16dp"
-        app:contentPadding ="5dp"
-        app:cardCornerRadius = "15dp"
-        app:cardElevation = "10dp"
-        >
-
-
-    <LinearLayout
-        style="@style/allWidthAndHeightMatchParent"
-        android:orientation="vertical"
-        android:padding="16dp">
-    <ScrollView
-        android:id="@+id/scrollView_article_fragment_item"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/markeTime_article_fragment_item"
-            style="@style/allWidthAndHeightWrapcontent"
-            android:textSize="15sp"
-            android:text="@string/article_fragment_item_date"/>
-
-        <TextView
-            android:id="@+id/contTitle_article_fragment_item"
-            style="@style/allWidthAndHeightWrapcontent"
-            android:layout_marginTop="10dp"
-            android:text="@string/article_fragment_item_title"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/authorName_article_fragment_item"
-            style="@style/allWidthAndHeightWrapcontent"
-            android:layout_marginTop="10dp"
-            android:text="@string/article_fragment_item_author"
-            android:textSize="13sp"
-            android:textColor="#7d7d7d" />
-
-        <TextView
-            android:id="@+id/content_article_fragment_item"
+        <android.support.v7.widget.CardView
             style="@style/allWidthAndHeightMatchParent"
-            android:layout_marginTop="10dp"
-            android:lineSpacingExtra="3dp"
-            android:textSize="15sp"
-            android:text="@string/article_fragment_item_content"/>
-
-        <TextView
-            android:id="@+id/authorIntroduce_article_fragment_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textColor="#000"
-            android:text="@string/article_fragment_item_editor" />
-
-        <CheckBox
-            android:id="@+id/praiseNumber_article_fragment_item"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_gravity="end"
-            android:button="@null"
-            android:drawableLeft="@drawable/laud_btn_selector"
-            android:drawablePadding="5dp"
-            android:scaleType="centerCrop"
-            android:text="@string/article_fragment_item_commont"
-            android:textSize="13sp" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:id="@+id/linearlayout_article_fragment_item"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="#c0c0c0">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:id="@+id/authorNameW_article_fragment_item"
-                style="@style/allWidthAndHeightWrapcontent"
-                android:textColor="#000"
-                android:text="@string/article_fragment_item_buttom_author"
-                android:textSize="13sp" />
+            android:padding="16dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            app:contentPadding="5dp">
 
 
-            <TextView
-                android:id="@+id/weixin_article_fragment_item"
-                style="@style/allWidthAndHeightWrapcontent"
-                android:layout_marginLeft="5dp"
-                android:textSize="11sp"
-                android:text="@string/article_fragment_item_trick"
-                />
-        </LinearLayout>
+            <LinearLayout
+                style="@style/allWidthAndHeightMatchParent"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <TextView
-            android:id="@+id/introduce_article_fragment_item"
-            style="@style/allWidthAndHeightWrapcontent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:textSize="15sp"
-            android:text="@string/article_fragment_item_author2"
-            />
 
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/markeTime_article_fragment_item"
+                    style="@style/allWidthAndHeightWrapcontent"
+                    android:text="@string/article_fragment_item_date"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/contTitle_article_fragment_item"
+                    style="@style/allWidthAndHeightWrapcontent"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/article_fragment_item_title"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/authorName_article_fragment_item"
+                    style="@style/allWidthAndHeightWrapcontent"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/article_fragment_item_author"
+                    android:textColor="#7d7d7d"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/content_article_fragment_item"
+                    style="@style/allWidthAndHeightMatchParent"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/article_fragment_item_content"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/authorIntroduce_article_fragment_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/article_fragment_item_editor"
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+
+                <CheckBox
+                    android:id="@+id/praiseNumber_article_fragment_item"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/laud_btn_selector"
+                    android:drawablePadding="5dp"
+                    android:scaleType="centerCrop"
+                    android:text="@string/article_fragment_item_commont"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_article_fragment_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#c0c0c0"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/authorNameW_article_fragment_item"
+                        style="@style/allWidthAndHeightWrapcontent"
+                        android:text="@string/article_fragment_item_buttom_author"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+
+                    <TextView
+                        android:id="@+id/weixin_article_fragment_item"
+                        style="@style/allWidthAndHeightWrapcontent"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/article_fragment_item_trick"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/introduce_article_fragment_item"
+                    style="@style/allWidthAndHeightWrapcontent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/article_fragment_item_author2"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+    </ScrollView>
         <ImageView
             android:id="@+id/article_progress_loading"
             android:layout_width="wrap_content"
@@ -133,7 +130,4 @@
             android:layout_gravity="center"
             android:background="@anim/waiting_anim"
             android:visibility="visible" />
-
-
-    </ScrollView>
 </FrameLayout>
