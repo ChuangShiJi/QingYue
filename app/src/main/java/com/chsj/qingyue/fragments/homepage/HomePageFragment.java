@@ -162,12 +162,11 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                         adapter.notifyDataSetChanged();
                         anim.stop();
                         imageView.setVisibility(View.GONE);
-
                         datas.add(hpEntity);
                     }
                 }).execute(String.format(Constants.URL_HOME_PAGE, i));
 
-               
+
             }
             adapter.notifyDataSetChanged();
 
