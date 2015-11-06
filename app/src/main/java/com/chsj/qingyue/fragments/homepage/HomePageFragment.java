@@ -153,20 +153,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             //
             datas.clear();
             for (int i = 1; i <= 10; i++) {
-            new AsyTask(new AsyTask.CallBack() {
-                @Override
-                public void setJsonStr(String str) {
-                    jsonStr = str;
-                    Log.d("str", jsonStr + "====");
-                    HpEntity hpEntity = ParseTool.parse(jsonStr);
-                    adapter.notifyDataSetChanged();
-                    anim.stop();
-                    imageView.setVisibility(View.GONE);
-
-                    datas.add(hpEntity);
-                }
-            }).execute(String.format(Constants.URL_HOME_PAGE, i));
-
                 new AsyTask(new AsyTask.CallBack() {
                     @Override
                     public void setJsonStr(String str) {
@@ -176,10 +162,12 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                         adapter.notifyDataSetChanged();
                         anim.stop();
                         imageView.setVisibility(View.GONE);
+
                         datas.add(hpEntity);
                     }
                 }).execute(String.format(Constants.URL_HOME_PAGE, i));
 
+               
             }
             adapter.notifyDataSetChanged();
 
@@ -242,25 +230,12 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             @Override
             public void onClick(View v) {
                 Drawable drawable = imgShow.getDrawable();
-
-
-//                Bitmap bitmap = Bitmap.createBitmap(
-//                        drawable.getIntrinsicWidth(),
-//                        drawable.getIntrinsicHeight(),
-//                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-//                                : Bitmap.Config.RGB_565);
-
                 BitmapDrawable d = (BitmapDrawable) drawable;
                 Bitmap bitmap = d.getBitmap();
 
-                try {
-                    ImageUtils.saveImg("qingyue" + imgUrl.replace("jpg", "png"), bitmap);
-                    ImageUtils.saveImageToGallery(getActivity().getApplicationContext(), bitmap);
-                    Toast.makeText(getActivity(), getString(R.string.save_sucess), Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                ImageUtils.saveImageToGallery(getActivity().getApplicationContext(), bitmap);
+                Toast.makeText(getActivity(), getString(R.string.save_sucess), Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
 
             }
         });
@@ -307,10 +282,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             imgUrl = hpEntity.getStrThumbnaiUrl();
 
-
-            Bitmap bitmap = ImageUtils.getImg("qingyue" + imgUrl.replace("jpg", "png"));
             //判断图片是否已经缓存，，，
-            Bitmap bitmap = ImageUtils.getImg("qingyue" + imgUrl.replace("jpg", "png"));
+            Bitmap bitmap = ImageUtils.getImg("qingyue1" + imgUrl.replace("jpg", "png"));
             if (bitmap != null) {//从sdk中获取图片
                 Log.d("sdk", "load from sdk----homd");
                 holder.imageView.setImageBitmap(bitmap);
@@ -323,7 +296,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
                     BitmapDrawable d = (BitmapDrawable) drawable;
                     Bitmap bitmap1 = d.getBitmap();
                     try {
-                        ImageUtils.saveImg("qingyue" + hpEntity.getStrThumbnaiUrl().replace("jpg", "png"), bitmap1);
+                        ImageUtils.saveImg("qingyue1" + hpEntity.getStrThumbnaiUrl().replace("jpg", "png"), bitmap1);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -408,15 +381,11 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
-        Log.d("homde", "onDestroyView");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Constants.FIRST_IN_HOMEPAGE = true;
-        Log.d("homde", "onDestroyView");
-
     }
 }
