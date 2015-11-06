@@ -11,4 +11,5 @@
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_regard">RegardActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_personal_center">PersonalCenterActivity</string>
 </resources>

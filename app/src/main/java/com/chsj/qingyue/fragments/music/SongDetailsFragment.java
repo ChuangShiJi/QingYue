@@ -183,7 +183,6 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
 
 
     }
-
     /**
      * 初始化控件
      *

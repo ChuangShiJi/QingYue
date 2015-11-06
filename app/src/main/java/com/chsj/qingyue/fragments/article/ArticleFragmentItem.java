@@ -1,6 +1,7 @@
 package com.chsj.qingyue.fragments.article;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -26,10 +28,12 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
     private int page;
     private int praiseNum;
     private ScrollView scrollView;
+    private ImageView loadImage;
     //    post请求地址中的参数
     private LinearLayout linearLayout;
     private String paramers = "strDate=null&strRow=%d";
     private CheckBox praiseBtn;
+    AnimationDrawable animation;
     private TextView authorNameTV,
             markeTimeTV,
             contTitleTV,
@@ -61,6 +65,10 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
 
     //初始化Fragment上的Ui控件，
     private void initView(View view) {
+//        获取load动画
+        loadImage= (ImageView) view.findViewById(R.id.article_progress_loading);
+         animation= (AnimationDrawable) loadImage.getBackground();
+        animation.start();
         authorNameTV = (TextView) view.findViewById(R.id.authorName_article_fragment_item);
         markeTimeTV = (TextView) view.findViewById(R.id.markeTime_article_fragment_item);
         contTitleTV = (TextView) view.findViewById(R.id.contTitle_article_fragment_item);
@@ -81,6 +89,8 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
     //    异步任务返回接口，字符的分割和UI的显示
     @Override
     public void resultComplete(ArticleEntity articleEntity) {
+        animation.stop();
+        loadImage.setVisibility(View.INVISIBLE);
         authorNameTV.setText(articleEntity.getStrContAuthor());
         String time = articleEntity.getStrContMarketTime();
         String times[] = time.split("-");

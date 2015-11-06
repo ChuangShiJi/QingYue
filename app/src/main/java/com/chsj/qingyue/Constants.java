@@ -50,4 +50,8 @@ public class Constants {
     public static final String ACTION_PROGRESS = "progress";
     //更新播放的位置
     public static final String ACTION_SEEKTO = "seek";
+
+
+    public static final String INTENT_ACTION_LOGOUT="com.chsj.qingyue.logout";
+    public static final String INTENT_ACTION_LOGIN="com.chsj.qingyue.login";
 }
