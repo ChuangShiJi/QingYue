@@ -82,4 +82,7 @@ public class Constants {
 
     //-----------------------------------------------
 
+
+    public static boolean FIRST_IN_HOMEPAGE = true;
+
 }

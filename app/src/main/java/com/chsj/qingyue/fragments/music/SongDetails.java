@@ -1,17 +1,28 @@
 package com.chsj.qingyue.fragments.music;
 
+import java.io.Serializable;
+
 /**
  * ProjectName: com.chsj.com
  * Created By:chsj
  * Date:2015/11/4
  */
-public class SongDetails {
+public class SongDetails implements Serializable {
 
     private String songPicBig;
     private String songPicRadio;
     private String lrcLink;
     private String songLink;
     private int time;
+    private String songName;
+
+    public String getSongName() {
+        return songName;
+    }
+
+    public void setSongName(String songName) {
+        this.songName = songName;
+    }
 
     public String getSongPicBig() {
         return songPicBig;
