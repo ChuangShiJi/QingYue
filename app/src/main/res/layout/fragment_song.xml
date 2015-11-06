@@ -8,15 +8,13 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/fragment_song_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        style="@style/allWidthAndHeightMatchParent">
 
     </android.support.v4.view.ViewPager>
 
     <ImageView
         android:id="@+id/fragment_song_pro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/allWidthAndHeightWrapcontent"
         android:layout_gravity="center"
         android:background="@anim/waiting_anim"
         android:visibility="visible" />

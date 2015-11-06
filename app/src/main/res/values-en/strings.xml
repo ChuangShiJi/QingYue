@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">qingRead</string>
+    <string name="main">qingRead</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_welcome">Welcome</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_setting">Setting</string>
+    <string name="title_activity_regard">Regard</string>
+    <string name="title_activity_login">Login</string>
+
+    <string name="messsge_now_no_net">Now,there is no network,please set up</string>
+    <string name="message_set_net">set the mobile network,click here</string>
+    <string name="message_set_wifi">set the WIFI,click here</string>
+    <string name="message_in_main">[qingRead]Using completely free,
+        in use process will produce mobile networks, or wlan traffic,
+        Specific flow rates, please consult your network operator,
+        in use process [qingRead] needs: for network communication access network
+        status, the state of WLAN.\n\n In order to provide a better user experience,
+        [qingRead] will collect some information for the user, do you agree with?\n\n</string>
+
+    <string name="message_agree">agree</string>
+
+    <string name="messag_no_msg">not pop again</string>
+
+    <string name="message_in_exit">exit</string>
+
+    <string name="message_savepic_photo">Save images to the photo album </string>
+    <string name="message_savepic_no">cacle</string>
+
+    <string name="home_page_item_title">title</string>
+    <string name="home_page_item_author">author</string>
+    <string name="home_page_item_content">content</string>
+    <string name="home_page_item_comment">22233</string>
+    <string name="question_message_can_share">Click on the top right corner to share</string>
+    <string name="queation_date">November 03,2015</string>
+    <string name="question_title">The title of the problem </string>
+    <string name="queation_discript">The description of the problem</string>
+    <string name="queation_anwser_title">Answer the question</string>
+    <string name="queation_anwser_content">The description of the problem of the answer\n\n</string>
+    <string name="queation_edit">Edit\n</string>
+    <string name="question_commont">commont</string>
+    <string name="song_lrc">LRC</string>
+    <string name="login_title">Login</string>
+    <string name="login_phone_tick">phone or nick</string>
+    <string name="login_password">input password</string>
+    <string name="login_btn">login</string>
+    <string name="login_forget_password">forget password</string>
+    <string name="login_new_user_sign_in">new user to login</string>
+    <string name="login_other_login">Third-party login </string>
+    <string name="about_title">about</string>
+    <string name="about_content_text">The [qingRead] in hand, is worth having </string>
+    <string name="setting_title">setting</string>
+    <string name="setting_browser_set">Browse the Settings </string>
+    <string name="setting_set_moon">Night mode switch</string>
+    <string name="setting_more">more</string>
+    <string name="setting_exit_login">Exit the currently logged in </string>
+    <string name="article_fragment_item_date">time</string>
+    <string name="article_fragment_item_title">Article title</string>
+    <string name="article_fragment_item_author">author</string>
+    <string name="article_fragment_item_content">content</string>
+    <string name="article_fragment_item_editor">editor</string>
+    <string name="article_fragment_item_commont">comments</string>
+    <string name="article_fragment_item_buttom_author">author</string>
+    <string name="article_fragment_item_trick">tricks</string>
+    <string name="article_fragment_item_author2">author2</string>
+
+    <!-- 适配java代码中的内容-->
+    <string name="question_now_comments">now comment:</string>
+
+    <string name="now_is_lastest_content">now is lastest content</string>
+    <string name="now_is_not_content">now is not have content</string>
+    <string name="now_is_first_page">The current is the first page</string>
+    <string name="now_is_lastest_page">The current is the last page</string>
+    <string name="more_controller">More operations</string>
+    <string name="save_sucess">Save success!</string>
+    <string name="authorization_success">Authorization success</string>
+    <string name="authorization_fail">Authorization failure</string>
+    <string name="authorization_cancle">Authorization to cancel </string>
+    <string name="now_no_data_to_share">Countless according to the current share</string>
+    <string name="switch_mode">Switch mode</string>
+    <string name="exit_now_login_in">Exit from the current account successfully </string>
+    <string name="now_no_account_login">The current account to log in</string>
+    <string name="to_give_score">to score</string>
+    <string name="feedback">feedback</string>
+    <string name="user_agreement">user agreement</string>
+    <string name="version">version</string>
+
+
+    <string name="person_now_login_in">now login in</string>
+    <string name="person_setting">setting</string>
+    <string name="person_about">about</string>
+    <string name="person_recommend_app">recommend app</string>
+
+
+</resources>

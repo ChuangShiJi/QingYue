@@ -65,14 +65,14 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
                     sina.setPlatformActionListener(this);
                     sina.authorize();
                     break;
-
             }
         }
     }
 
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-        Toast.makeText(this, "授权成功", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, getResources().getString(R.string.authorization_success), Toast.LENGTH_SHORT).show();
         String name=platform.getDb().getUserName();
         String userIcon=platform.getDb().getUserIcon();
 
@@ -80,12 +80,12 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
 
     @Override
     public void onError(Platform platform, int i, Throwable throwable) {
-        Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.authorization_fail), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onCancel(Platform platform, int i) {
-        Toast.makeText(this, "授权取消", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.authorization_cancle), Toast.LENGTH_SHORT).show();
         String name=platform.getDb().getUserName();
         String userIcon=platform.getDb().getUserIcon();
     }

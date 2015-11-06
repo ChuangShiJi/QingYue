@@ -1,8 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/splash_container_linear"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/allWidthAndHeightMatchParent"
     android:background="@mipmap/start_app_bg_icon"
     android:gravity="center"
     android:orientation="vertical"
@@ -10,53 +9,46 @@
 
     <FrameLayout
         android:id="@+id/activity_splash_fr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/allWidthAndHeightWrapcontent"
         android:layout_margin="20dp">
 
         <RelativeLayout
             android:id="@+id/relative_window"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/allWidthAndHeightWrapcontent"
             android:background="#fff"
             android:padding="20dp">
 
             <TextView
                 android:id="@+id/splash_info"
                 android:layout_width="match_parent"
+                style="@style/inSplashMessageTextStyle1"
                 android:layout_height="wrap_content"
-                android:text="[轻阅]使用完全免费，在使用过程中会产生移动网络或wlan流量，
-        具体流量资费请咨询您的网络运营商，在使用过程中[轻阅]需要：进行网络通信获取网络状态，
-        WLAN状态。\n\n 为了提供更好的用户体验，[轻阅]将收集用户部分信息，您是否同意？\n\n" />
+                android:text="@string/message_in_main" />
 
             <CheckBox
                 android:id="@+id/splash_chexkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/allWidthAndHeightWrapcontent"
                 android:layout_below="@id/splash_info"
-                android:text="不再显示提醒" />
+                android:text="@string/messag_no_msg" />
 
             <TextView
                 android:id="@+id/splash_agree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/inSplashMessageTextStyle"
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/splash_chexkbox"
-                android:text="同意"
-                android:textColor="#80B3FF" />
+                android:text="@string/message_agree"
+                />
 
             <TextView
                 android:id="@+id/splash_exit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/inSplashMessageTextStyle"
                 android:layout_alignBaseline="@id/splash_agree"
-                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40sp"
                 android:layout_toLeftOf="@id/splash_agree"
-                android:text="退出"
-                android:textColor="#80B3FF" />
+                android:text="@string/message_in_exit"
+                />
 
         </RelativeLayout>
 
     </FrameLayout>
-
 </LinearLayout>

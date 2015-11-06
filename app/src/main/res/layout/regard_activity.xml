@@ -17,40 +17,41 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
 
+            android:src="@drawable/return_btn_selector"
             android:onClick="setOperate"
-            android:scaleType="centerInside"
-            android:src="@drawable/return_btn_selector" />
+            android:scaleType="centerInside" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        style="@style/allWidthAndHeightWrapcontent"
             android:layout_centerInParent="true"
-            android:text="关于"
-            android:textSize="30sp" />
+            android:text="@string/about_title"
+            android:textSize="23sp" />
     </RelativeLayout>
 
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp"
 
             app:contentPadding="5dp">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@mipmap/third_party_login_bg_mobile">
+                style="@style/allWidthAndHeightMatchParent"
+                android:background="@mipmap/third_party_login_bg_mobile"
+                >
 
                 <TextView
                     android:id="@+id/regard_head"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="轻阅在手，值得拥有"
-                    android:textSize="20sp" />
+                    android:text="@string/about_content_text"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/regard_content"
@@ -74,11 +75,6 @@
 
 
             </RelativeLayout>
-
-
         </android.support.v7.widget.CardView>
-
-
-
-
+    </ScrollView>
 </LinearLayout>

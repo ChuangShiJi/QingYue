@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,13 +17,9 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.chsj.qingyue.fragments.article.ArticleEntity;
-import com.chsj.qingyue.fragments.article.ArticleFragment;
-import com.chsj.qingyue.fragments.homepage.HomePageFragment;
+import com.chsj.qingyue.fragments.music.PlaySongService;
 import com.chsj.qingyue.fragments.music.Song;
-import com.chsj.qingyue.fragments.music.SongFragment;
-import com.chsj.qingyue.fragments.person.PersonFragment;
 import com.chsj.qingyue.fragments.question.QuestionEntity;
-import com.chsj.qingyue.fragments.question.QuestionFragment;
 import com.chsj.qingyue.tools.NetWorkUtils;
 
 import cn.sharesdk.framework.ShareSDK;
@@ -38,11 +37,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //广播接受者：
     private ShareBroadcastReceiver shareBroadcastReceiver;
 
+
+    private FragmentManager mFragmentMan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        mFragmentMan = getSupportFragmentManager();
 
         isNetWorkAvalable = NetWorkUtils.isConnect(this);
 
@@ -66,8 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, SettingNetActivity.class);
             startActivity(intent);
         } else {//有网络，加载默认的fragment
-            HomePageFragment fragment = new HomePageFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_id, fragment)
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_id, Constants.FRAGMENT_HOME)
                     .commit();
         }
         //实例化广播接受者：
@@ -87,33 +90,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.main_tab_item_first:
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_id, new HomePageFragment())
-                        .commit();
+//                               getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_id, new HomePageFragment())
+//                        .commit();
+
+                switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_HOME);
+
                 break;
 
             case R.id.main_tab_item_article:
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_id, new ArticleFragment())
-                        .commit();
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_id, new ArticleFragment())
+//                        .commit();
+                switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_ARTICLE);
+
                 break;
 
             case R.id.main_tab_item_problem:
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_id, new QuestionFragment())
-                        .commit();
+
+
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_id, new QuestionFragment())
+//                        .commit();
+
+                switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_QUESTION);
+
                 break;
 
             case R.id.main_tab_item_things:
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_id, new SongFragment())
-                        .commit();
+
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_id, new SongFragment())
+//                        .commit();
+                switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_SONG);
+
+
                 break;
 
             case R.id.main_tab_item_personal:
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_id, new PersonFragment())
-                        .commit();
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_id, new PersonFragment())
+//                        .commit();
+                switchContent(Constants.ACTIVITY_CURRENT_FRAGMENT, Constants.FRAGMENT_PERSON);
+
                 break;
 
             //点击分享事件：
@@ -146,10 +165,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
                         oks.setTitleUrl(questionEntity.getSWebLk());
                         // text是分享文本，所有平台都需要这个字段
-                        oks.setText(questionEntity.getStrQuestionTitle());
+                        oks.setText(questionEntity.getStrQuestionTitle()+questionEntity.getSWebLk());
                         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
 //                        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
                         oks.setImageUrl("http://img4.imgtn.bdimg.com/it/u=281071708,647194968&fm=21&gp=0.jpg");
+
 
                         // url仅在微信（包括好友和朋友圈）中使用
                         oks.setUrl(questionEntity.getSWebLk());
@@ -169,19 +189,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 } else {
-                    Toast.makeText(this, "当前无数据可分享", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.now_no_data_to_share), Toast.LENGTH_SHORT).show();
                 }
-
                 break;
 
         }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Constants.isExit = false;
     }
 
     @Override
     protected void onDestroy() {
         //取消注册  广播
         localBroadcastManager.unregisterReceiver(shareBroadcastReceiver);
-
+        Intent intent = new Intent(this, PlaySongService.class);
+        Constants.isExit = true;
+        stopService(intent);
         super.onDestroy();
     }
 
@@ -194,6 +222,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void onReceive(Context context, Intent intent) {
             Bundle bundle = intent.getExtras();
             data = bundle.get(Constants.DATA_TO_EXTRA);
+        }
+    }
+
+
+    /**
+     * 切换Fragment，防止被重新初始化
+     *
+     * @param from
+     * @param to
+     */
+    public void switchContent(Fragment from, Fragment to) {
+        if (Constants.ACTIVITY_CURRENT_FRAGMENT != to) {
+            Constants.ACTIVITY_CURRENT_FRAGMENT = to;
+            FragmentTransaction transaction = mFragmentMan.beginTransaction();
+
+            if (!to.isAdded()) {    // 先判断是否被add过
+                transaction.hide(from).add(R.id.fragment_id, to)
+                        .commit(); // 隐藏当前的fragment，add下一个到Activity中
+            } else {
+                transaction.hide(from).show(to).commit(); // 隐藏当前的fragment，显示下一个
+            }
         }
     }
 

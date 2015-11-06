@@ -93,6 +93,7 @@ public class ArticleFragmentItem extends Fragment implements ArticleTask.Article
         loadImage.setVisibility(View.INVISIBLE);
         authorNameTV.setText(articleEntity.getStrContAuthor());
         String time = articleEntity.getStrContMarketTime();
+
         String times[] = time.split("-");
         if (times != null) {
             int month = Integer.parseInt(times[1]);

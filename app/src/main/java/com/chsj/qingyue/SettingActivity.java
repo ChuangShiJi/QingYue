@@ -33,7 +33,7 @@ public class SettingActivity extends AppCompatActivity {
 //                TODO 设置界面的功能实现
 //                模式设置
                 case R.id.setting_model:
-                    Toast.makeText(this, "切换模式", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getResources().getString(R.string.switch_mode), Toast.LENGTH_SHORT).show();
                     break;
 //                应用评分
                 case R.id.setting_grade:

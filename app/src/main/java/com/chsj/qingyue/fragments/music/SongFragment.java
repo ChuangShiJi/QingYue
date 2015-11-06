@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.chsj.qingyue.Constants;
 import com.chsj.qingyue.R;
+import com.chsj.qingyue.ZoomOutPageTransformer;
 import com.chsj.qingyue.fragments.homepage.AsyTask;
 import com.chsj.qingyue.fragments.homepage.ParseTool;
 
@@ -49,16 +50,16 @@ public class SongFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.fragment_song, container, false);
 
         imgPro = (ImageView) view.findViewById(R.id.fragment_song_pro);
         viewPager = (ViewPager) view.findViewById(R.id.fragment_song_view_pager);
         datas = new ArrayList<Fragment>();
         songAdapter = new SongAdapter(getChildFragmentManager(), datas);
-        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        viewPager.setAdapter(songAdapter);
 
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+
+        viewPager.setAdapter(songAdapter);
         viewPager.setOffscreenPageLimit(10);
 
         //获取歌曲列表
@@ -67,7 +68,6 @@ public class SongFragment extends Fragment {
         //启动加载动画
         anim = (AnimationDrawable) imgPro.getBackground();
         anim.start();
-
 
         return view;
     }
@@ -108,7 +108,7 @@ public class SongFragment extends Fragment {
         }
 
         songAdapter.notifyDataSetChanged();
+        viewPager.setCurrentItem(Constants.CURRENT_FRAGMENT);
     }
-
 
 }

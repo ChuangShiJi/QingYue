@@ -1,4 +1,4 @@
-package com.chsj.qingyue.fragments.music;
+package com.chsj.qingyue;
 
 /**
  * ProjectName: com.chsj.com
@@ -24,7 +24,6 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
         int pageWidth = view.getWidth();
         int pageHeight = view.getHeight();
 
-        Log.e("TAG", view + " , " + position + "");
 
         if (position < -1) { // [-Infinity,-1)
             // This page is way off-screen to the left.
@@ -36,6 +35,7 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
             float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
             float vertMargin = pageHeight * (1 - scaleFactor) / 2;
             float horzMargin = pageWidth * (1 - scaleFactor) / 2;
+
             if (position < 0) {
                 view.setTranslationX(horzMargin - vertMargin / 2);
             } else {

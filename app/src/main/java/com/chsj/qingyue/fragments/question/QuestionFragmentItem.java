@@ -112,14 +112,23 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
 
         if (questionEntity!=null){
 
+            String date = questionEntity.getStrQuestionMarketTime();
+
+            String dates[] = date.split("-");
+            if (dates != null) {
+                int month = Integer.parseInt(dates[1]);
+                String months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+                date = months[month - 1] + " " + dates[2] + "," + dates[0];
+            }
             //初始化视图：
-            time.setText(questionEntity.getStrQuestionMarketTime());
+            //获取时间：
+            time.setText(date);
             questionTitle.setText(questionEntity.getStrQuestionTitle());
             questionDescrpt.setText(questionEntity.getStrQuestionContent());
             anwserTitle.setText(questionEntity.getStrAnswerTitle());
             anwserDescript.setText(replaceStrBr(questionEntity.getStrAnswerContent())+"\n");
             sEdit.setText(questionEntity.getSEditor()+"\n");
-            anwserComment.setText("当前评论:"+questionEntity.getStrPraiseNumber());
+            anwserComment.setText(getResources().getString(R.string.question_now_comments) + questionEntity.getStrPraiseNumber());
 
             //获取点赞数
             well = Integer.parseInt(questionEntity.getStrPraiseNumber());
@@ -182,11 +191,11 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
 
         if (isClick){
             well = well+1;
-            anwserComment.setText("当前评论:"+ well);
+            anwserComment.setText(getString(R.string.question_now_comments)+ well);
             isClick = false;
         }else{
             well = well-1;
-            anwserComment.setText("当前评论:" + well);
+            anwserComment.setText(getString(R.string.question_now_comments)+ well);
             isClick = true;
         }
     }
