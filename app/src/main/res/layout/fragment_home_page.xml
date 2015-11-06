@@ -5,7 +5,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_homepage_recycler_view"
-        style="@style/allWidthAndHeightMatchParent"></android.support.v7.widget.RecyclerView>
+        style="@style/allWidthAndHeightMatchParent">
+        ></android.support.v7.widget.RecyclerView>
 
     <FrameLayout
         android:id="@+id/fragment_home_page_framelayout"

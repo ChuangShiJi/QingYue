@@ -85,6 +85,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         recyclerView = (RecyclerView) ret.findViewById(R.id.fragment_homepage_recycler_view);
         imgShow = (ImageView) ret.findViewById(R.id.fragment_home_page_showbig_img);
         frameLayout = (FrameLayout) ret.findViewById(R.id.fragment_home_page_framelayout);
+
         RecyclerView.LayoutManager manager = new LinearLayoutManager(
                 getActivity().getApplicationContext(),
                 LinearLayoutManager.VERTICAL,
@@ -152,6 +153,19 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             //
             datas.clear();
             for (int i = 1; i <= 10; i++) {
+            new AsyTask(new AsyTask.CallBack() {
+                @Override
+                public void setJsonStr(String str) {
+                    jsonStr = str;
+                    Log.d("str", jsonStr + "====");
+                    HpEntity hpEntity = ParseTool.parse(jsonStr);
+                    adapter.notifyDataSetChanged();
+                    anim.stop();
+                    imageView.setVisibility(View.GONE);
+
+                    datas.add(hpEntity);
+                }
+            }).execute(String.format(Constants.URL_HOME_PAGE, i));
 
                 new AsyTask(new AsyTask.CallBack() {
                     @Override
@@ -294,6 +308,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             imgUrl = hpEntity.getStrThumbnaiUrl();
 
 
+            Bitmap bitmap = ImageUtils.getImg("qingyue" + imgUrl.replace("jpg", "png"));
+            //判断图片是否已经缓存，，，
             Bitmap bitmap = ImageUtils.getImg("qingyue" + imgUrl.replace("jpg", "png"));
             if (bitmap != null) {//从sdk中获取图片
                 Log.d("sdk", "load from sdk----homd");
