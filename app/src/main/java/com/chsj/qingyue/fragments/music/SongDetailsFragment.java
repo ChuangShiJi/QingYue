@@ -5,6 +5,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
@@ -20,8 +23,10 @@ import com.chsj.qingyue.Constants;
 import com.chsj.qingyue.R;
 import com.chsj.qingyue.fragments.homepage.AsyTask;
 import com.chsj.qingyue.fragments.homepage.ParseTool;
+import com.chsj.qingyue.tools.ImageUtils;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -167,10 +172,44 @@ public class SongDetailsFragment extends Fragment implements View.OnClickListene
                 lrcUrl = songDetails.getLrcLink();
 
                 if (getActivity() != null && songDetails != null && imgThumb != null) {
-                    Picasso.with(getActivity().getApplicationContext()).load(songDetails.getSongPicRadio()).into(imgThumb);
+                    //Picasso.with(getActivity().getApplicationContext()).load(songDetails.getSongPicRadio()).into(imgThumb);
+                    Bitmap bitmap = ImageUtils.getImg("qingyue" + songDetails.getSongPicRadio().replace("jpg", "png"));
+
+                    if (bitmap != null) {//从sdk中获取图片
+                        Log.d("sdk", "load from sdk----song");
+
+                        imgThumb.setImageBitmap(bitmap);
+                    } else {//从网络下载图片
+                        Picasso.with(getActivity().getApplicationContext()).load(songDetails.getSongPicRadio()).into(imgThumb);
+                        //缓存歌曲图片到本地
+                        Drawable drawable = imgThumb.getDrawable();
+                        if (drawable != null) {
+                            BitmapDrawable d = (BitmapDrawable) drawable;
+                            Bitmap bitmap1 = d.getBitmap();
+                            try {
+                                ImageUtils.saveImg("qingyue" + songDetails.getSongPicRadio().replace("jpg", "png"), bitmap1);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
                 }
+
+
                 txtArtist.setText(song.getSongArtist());
                 txtTitle.setText(song.getSongTitle());
+
+                if (songDetails != null) {
+                    //该页面备选中后   发送广播数据：通过本地广播管理器  来发送广播：
+                    Intent intent = new Intent(Constants.GET_DATA_TO_SHARE);
+                    Bundle bundle = new Bundle();
+
+                    bundle.putSerializable(Constants.DATA_TO_EXTRA, songDetails);//将网络数据传入
+                    intent.putExtras(bundle);
+
+                    lbMgr.sendBroadcast(intent);
+                }
+
 
             }
         }).execute(String.format(Constants.SONG_DETAILS_URL, songId));

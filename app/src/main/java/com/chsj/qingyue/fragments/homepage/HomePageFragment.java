@@ -76,6 +76,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         View ret = null;
 
         ret = inflater.inflate(R.layout.fragment_home_page, container, false);
@@ -84,6 +85,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         recyclerView = (RecyclerView) ret.findViewById(R.id.fragment_homepage_recycler_view);
         imgShow = (ImageView) ret.findViewById(R.id.fragment_home_page_showbig_img);
         frameLayout = (FrameLayout) ret.findViewById(R.id.fragment_home_page_framelayout);
+
         RecyclerView.LayoutManager manager = new LinearLayoutManager(
                 getActivity().getApplicationContext(),
                 LinearLayoutManager.VERTICAL,
@@ -142,30 +144,34 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
         super.onResume();
 
+        if (Constants.FIRST_IN_HOMEPAGE) {
 
-        anim = (AnimationDrawable) imageView.getBackground();
-        anim.start();
 
-        //
-        datas.clear();
-        for (int i = 1; i <= 10; i++) {
+            anim = (AnimationDrawable) imageView.getBackground();
+            anim.start();
 
-            new AsyTask(new AsyTask.CallBack() {
-                @Override
-                public void setJsonStr(String str) {
-                    jsonStr = str;
-                    Log.d("str", jsonStr + "====");
-                    HpEntity hpEntity = ParseTool.parse(jsonStr);
-                    adapter.notifyDataSetChanged();
-                    anim.stop();
-                    imageView.setVisibility(View.GONE);
-                    datas.add(hpEntity);
-                }
-            }).execute(String.format(Constants.URL_HOME_PAGE, i));
+            //
+            datas.clear();
+            for (int i = 1; i <= 10; i++) {
+                new AsyTask(new AsyTask.CallBack() {
+                    @Override
+                    public void setJsonStr(String str) {
+                        jsonStr = str;
+                        Log.d("str", jsonStr + "====");
+                        HpEntity hpEntity = ParseTool.parse(jsonStr);
+                        adapter.notifyDataSetChanged();
+                        anim.stop();
+                        imageView.setVisibility(View.GONE);
+                        datas.add(hpEntity);
+                    }
+                }).execute(String.format(Constants.URL_HOME_PAGE, i));
 
+
+            }
+            adapter.notifyDataSetChanged();
+
+            Constants.FIRST_IN_HOMEPAGE = false;
         }
-        adapter.notifyDataSetChanged();
-
 
     }
 
@@ -223,25 +229,12 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
             @Override
             public void onClick(View v) {
                 Drawable drawable = imgShow.getDrawable();
-
-
-//                Bitmap bitmap = Bitmap.createBitmap(
-//                        drawable.getIntrinsicWidth(),
-//                        drawable.getIntrinsicHeight(),
-//                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-//                                : Bitmap.Config.RGB_565);
-
                 BitmapDrawable d = (BitmapDrawable) drawable;
                 Bitmap bitmap = d.getBitmap();
 
-                try {
-                    ImageUtils.saveImg("qingyue" + imgUrl.replace("jgp", "png"), bitmap);
-                    ImageUtils.saveImageToGallery(getActivity().getApplicationContext(), bitmap);
-                    Toast.makeText(getActivity(),getString(R.string.save_sucess), Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                ImageUtils.saveImageToGallery(getActivity().getApplicationContext(), bitmap);
+                Toast.makeText(getActivity(), getString(R.string.save_sucess), Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
 
             }
         });
@@ -288,13 +281,26 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             imgUrl = hpEntity.getStrThumbnaiUrl();
 
-
-            Bitmap bitmap = ImageUtils.getImg("qingyue" + imgUrl.replace("jgp", "png"));
+            //判断图片是否已经缓存，，，
+            Bitmap bitmap = ImageUtils.getImg("qingyue1" + imgUrl.replace("jpg", "png"));
             if (bitmap != null) {//从sdk中获取图片
+                Log.d("sdk", "load from sdk----homd");
                 holder.imageView.setImageBitmap(bitmap);
             } else {//从网络下载图片
-
+                Log.d("sdk", "load from net----homd");
                 Picasso.with(getActivity().getApplicationContext()).load(hpEntity.getStrThumbnaiUrl()).into(holder.imageView);
+
+                Drawable drawable = holder.imageView.getDrawable();
+                if (drawable != null) {
+                    BitmapDrawable d = (BitmapDrawable) drawable;
+                    Bitmap bitmap1 = d.getBitmap();
+                    try {
+                        ImageUtils.saveImg("qingyue1" + hpEntity.getStrThumbnaiUrl().replace("jpg", "png"), bitmap1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
 
 
@@ -370,4 +376,15 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
         }
     }
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Constants.FIRST_IN_HOMEPAGE = true;
+    }
 }

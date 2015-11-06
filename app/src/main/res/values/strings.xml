@@ -91,4 +91,6 @@
     <string name="person_recommend_app">推荐应用</string>
 <!--个人中心-->
 <string name="title_activity_personal_center">个人中心</string>
+    <string name="now_page_no_to_share">当前页无法分享</string>
+
 </resources>

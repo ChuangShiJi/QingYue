@@ -94,11 +94,7 @@ public class PlaySongService extends Service {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
         }
-
-
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -120,7 +116,6 @@ public class PlaySongService extends Service {
             if (!Constants.isExit) {
 
                 try {
-                    Log.d("thread", Constants.isExit + "");
                     while (mediaPlayer != null && mediaPlayer.isPlaying()) {
                         sumLen = mediaPlayer.getDuration();
                         int currentPosition = mediaPlayer.getCurrentPosition();

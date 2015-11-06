@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class ImageUtils {
+
     public static final String CACHEDIR = Environment.getExternalStorageDirectory() + "/qingyue/images";
 
 
@@ -88,6 +89,7 @@ public class ImageUtils {
     public static void saveImageToGallery(Context context, Bitmap bmp) {
         // 首先保存图片
         File appDir = new File(Environment.getExternalStorageDirectory(), "QingYue");
+
         if (!appDir.exists()) {
             appDir.mkdir();
         }

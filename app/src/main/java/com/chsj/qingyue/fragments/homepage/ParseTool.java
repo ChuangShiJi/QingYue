@@ -88,6 +88,7 @@ public class ParseTool {
             songDetails.setSongLink(jsonObject.getString("songLink"));
             songDetails.setSongPicBig(jsonObject.getString("songPicBig"));
             songDetails.setSongPicRadio(jsonObject.getString("songPicRadio"));
+            songDetails.setSongName(jsonObject.getString("songName"));
 
         } catch (JSONException e) {
             e.printStackTrace();

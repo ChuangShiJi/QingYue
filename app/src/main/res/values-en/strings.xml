@@ -74,14 +74,16 @@
 
     <string name="now_is_lastest_content">now is lastest content</string>
     <string name="now_is_not_content">now is not have content</string>
-    <string name="now_is_first_page">The current is the first page</string>
-    <string name="now_is_lastest_page">The current is the last page</string>
+
+
     <string name="more_controller">More operations</string>
     <string name="save_sucess">Save success!</string>
     <string name="authorization_success">Authorization success</string>
     <string name="authorization_fail">Authorization failure</string>
     <string name="authorization_cancle">Authorization to cancel </string>
+
     <string name="now_no_data_to_share">Countless according to the current share</string>
+
     <string name="switch_mode">Switch mode</string>
     <string name="exit_now_login_in">Exit from the current account successfully </string>
     <string name="now_no_account_login">The current account to log in</string>
@@ -95,6 +97,7 @@
     <string name="person_setting">setting</string>
     <string name="person_about">about</string>
     <string name="person_recommend_app">recommend app</string>
+    <string name="now_page_no_to_share">当前页无法分享</string>
 
     <!--个人中心-->
     <string name="title_activity_personal_center">personal_center</string>
