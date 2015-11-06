@@ -83,7 +83,8 @@ public class QuestionFragment extends Fragment implements ViewPager.OnPageChange
     private void initFragment() {
         //初始化Fragment：
         for (int i=0; i <= 9;i++){
-            fragments.add(QuestionFragmentItem.getInstance(String.format(Constants.QUESTION_URL, (i+1)+"")));
+            int curr = i+1;
+            fragments.add(QuestionFragmentItem.getInstance(String.format(Constants.QUESTION_URL, curr + "")));
         }
     }
 

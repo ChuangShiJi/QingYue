@@ -58,7 +58,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
     private ImageView imageView;
     private AnimationDrawable anim;
 
-
     public HomePageFragment() {
     }
 
@@ -345,6 +344,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener, 
 
             switch (id) {
                 case R.id.fragment_homepage_item_icon:
+
                     frameLayout.setVisibility(View.VISIBLE);
                     imgShow.setImageDrawable(imageView.getDrawable());
                     Animation mAnimation = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.imgshowscal);

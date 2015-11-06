@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     //分享广播接受者
-    class ShareBroadcastReceiver extends BroadcastReceiver {
+    final class ShareBroadcastReceiver extends BroadcastReceiver {
         private Object data;//传入的数据：
 
         @Override
