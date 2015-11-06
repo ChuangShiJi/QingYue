@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
 //                第三方微信登录
                 case R.id.login_wechat:
                     Platform wechat = ShareSDK.getPlatform(this, Wechat.NAME);
+                    wechat.SSOSetting(false);
                     wechat.setPlatformActionListener(this);
                     wechat.authorize();
                     break;
