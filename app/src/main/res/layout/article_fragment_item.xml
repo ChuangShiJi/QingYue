@@ -8,8 +8,8 @@
 
     <ScrollView
 
-        android:layout_width="match_parent"
         android:id="@+id/scrollView_article_fragment_item"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
@@ -121,13 +121,13 @@
         </android.support.v7.widget.CardView>
 
 
-
     </ScrollView>
-        <ImageView
-            android:id="@+id/article_progress_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@anim/waiting_anim"
-            android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/article_progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@anim/waiting_anim"
+        android:visibility="visible" />
 </FrameLayout>

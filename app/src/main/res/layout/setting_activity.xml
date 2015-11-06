@@ -78,7 +78,8 @@
                     style="@style/settingTextStyle"
                     android:drawablePadding="20dp"
                     android:gravity="center_vertical"
-                    android:padding="16dp"
+                    android:textColor="#202020"
+                    android:padding="18dp"
                     android:text="@string/setting_more"
                      />
 

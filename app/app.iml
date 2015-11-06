@@ -91,12 +91,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 22 Platform (1)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="design-22.2.0" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.6.3" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-TencentWeibo-2.6.3" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Alipay-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-22.2.0" level="project" />
@@ -113,7 +109,9 @@
     <orderEntry type="library" exported="" name="MobLogCollector" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.6.3" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-TencentWeibo-2.6.3" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.4" level="project" />
     <orderEntry type="library" exported="" name="ShareSDK-Core-2.6.3" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-QZone-2.6.3" level="project" />
+    <orderEntry type="library" exported="" name="design-22.2.0" level="project" />
+    <orderEntry type="library" exported="" name="cardview-v7-22.2.0" level="project" />
   </component>
 </module>

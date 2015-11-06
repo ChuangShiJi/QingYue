@@ -52,7 +52,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:scaleType="centerInside"
-                android:src="@mipmap/third_party_one_logo" />
+                android:src="@drawable/bg" />
 
             <EditText
                 android:id="@+id/login_user_name"
