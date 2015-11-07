@@ -1,7 +1,7 @@
 package com.chsj.qingyue.tools;
 /**
  * Author:whl
- * Email:294084532@qq.com
+ *
  * 2015/10/12
  */
 
