@@ -26,7 +26,7 @@ public class CustomLoginUI extends AuthorizeAdapter {
 //        bodyView.getChildAt(0).setBackgroundColor(Color.BLACK);
 //        getBodyView()
 
-//标题栏的文字修改
+        //标题栏的文字修改
         llTitle.getTvTitle().setText("轻阅");
     }
 

@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
                         oks.setTitleUrl(songDetails.getSongLink());
                         // text是分享文本，所有平台都需要这个字段
-                        oks.setText(songDetails.getSongName() + "  " + songDetails.getSongLink());
+                        oks.setText(songDetails.getSongName() + " " + songDetails.getSongLink());
                         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
 //                        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
                         oks.setImageUrl("http://img4.imgtn.bdimg.com/it/u=281071708,647194968&fm=21&gp=0.jpg");
