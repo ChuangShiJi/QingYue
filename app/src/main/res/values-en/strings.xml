@@ -93,11 +93,14 @@
     <string name="version">version</string>
 
 
-    <string name="person_now_login_in">now login in</string>
+    <string name="person_now_login_in">login in</string>
     <string name="person_setting">setting</string>
     <string name="person_about">about</string>
     <string name="person_recommend_app">recommend app</string>
     <string name="now_page_no_to_share">当前页无法分享</string>
+
+    <!--个人中心-->
+    <string name="title_activity_personal_center">personal_center</string>
 
 
 </resources>

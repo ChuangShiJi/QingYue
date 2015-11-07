@@ -19,7 +19,9 @@
 
             android:onClick="loginOperate"
             android:scaleType="centerInside"
-            android:src="@drawable/return_btn_selector" />
+            android:src="@drawable/return_btn_selector"
+
+             />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,6 +31,9 @@
             android:textSize="23sp" />
     </RelativeLayout>
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -47,7 +52,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:scaleType="centerInside"
-                android:src="@mipmap/third_party_one_logo" />
+                android:src="@drawable/bg" />
 
             <EditText
                 android:id="@+id/login_user_name"
@@ -171,6 +176,8 @@
                 android:scaleType="centerCrop" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+</ScrollView>
+
 
 
 </LinearLayout>

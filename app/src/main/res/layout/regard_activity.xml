@@ -46,11 +46,33 @@
                 >
 
                 <TextView
+                    android:id="@+id/regard_head"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/about_content_text"
                     android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/regard_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/regard_head"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="5dp"
+                    android:text="“ 轻阅读”作为一种注重读书情调的阅读方式，
+                    深受“小资”读者的青睐。这类“小资”阶层一般具有以下特点：
+                    有一定的知识、一定的智慧和悟性、一定的闲情逸致以及一定的物质保障。他们大多拥有一份体面的工作，所追求的生活方式既不能太累又要有一定的品位。“小资”们所追求的这种生活方式也在很大程度上影响到他们的阅读趣味，他们中意的读物既要看着不累，又要能够显示出他们的品位和身份，最好还有一点浪漫的情调。" />
+
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/regard_content"
+                    android:layout_width="wrap_content"
+                    android:text="‘轻阅读’是另一种重质感的阅读。---王肖练"
+                    android:layout_height="wrap_content" />
+
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>

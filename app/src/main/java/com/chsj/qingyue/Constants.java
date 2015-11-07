@@ -83,6 +83,10 @@ public class Constants {
     //-----------------------------------------------
 
 
+
+    public static final String INTENT_ACTION_LOGOUT="com.chsj.qingyue.logout";
+    public static final String INTENT_ACTION_LOGIN="com.chsj.qingyue.login";
+
     public static boolean FIRST_IN_HOMEPAGE = true;
 
 }

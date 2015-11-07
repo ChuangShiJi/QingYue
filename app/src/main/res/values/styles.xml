@@ -32,6 +32,19 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
     </style>
+    <!-- 个人中心RadioButton样式-->
+    <style name="PersonalCenterRadioButton">
+        <item name="android:background">@drawable/personalcenter_radiobutton_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:width">0dp</item>
+        <item name="android:textSize">15sp</item>
+        <!--<item name="android:textColor">@drawable/selector</item>-->
+
+
+    </style>
 
 
     <!-- 定义一个基本样式  基本样高宽式-->

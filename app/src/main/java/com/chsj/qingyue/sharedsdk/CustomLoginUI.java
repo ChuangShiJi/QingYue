@@ -18,6 +18,8 @@ public class CustomLoginUI extends AuthorizeAdapter {
 
     public void onCreate() {
 //        System.out.println("> ShareSDKUIShell created!");
+//        隐藏ShateSDK的Logo
+        hideShareSDKLogo();
 //获取标题栏控件
         TitleLayout llTitle = getTitleLayout();
         llTitle.getBtnRight().setText("helllo");

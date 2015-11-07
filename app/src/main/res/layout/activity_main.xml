@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:src="@mipmap/one_title"
-            android:visibility="invisible" />
+            android:src="@drawable/main_title"
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/title_share"

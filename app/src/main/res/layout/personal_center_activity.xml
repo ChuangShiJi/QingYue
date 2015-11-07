@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.chsj.qingyue.PersonalCenterActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/person_center_bg" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <ImageView
+                android:id="@+id/perosnal_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:onClick="personcenterOperate"
+                android:scaleType="centerInside"
+                android:src="@drawable/return_btn_selector" />
+
+            <ImageView
+                android:id="@+id/personal_center_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop" />
+
+
+            <TextView
+                android:id="@+id/personal_center_nickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/personal_center_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="213"
+                android:textColor="#ff6620"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/personal_center_pic"
+            style="@style/PersonalCenterRadioButton"
+            android:checked="true"
+            android:text="图片"
+
+            />
+
+        <RadioButton
+            android:id="@+id/personal_center_article"
+            style="@style/PersonalCenterRadioButton"
+            android:text="文章"
+
+            />
+
+        <RadioButton
+            android:id="@+id/personal_center_question"
+            style="@style/PersonalCenterRadioButton"
+            android:text="问题"
+
+            />
+
+        <RadioButton
+            android:id="@+id/personal_center_object"
+            style="@style/PersonalCenterRadioButton"
+            android:text="东西"
+
+            />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <ImageView
+            android:id="@+id/person_center_smileicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/on_stow_image_day" />
+
+        <ImageView
+            android:id="@+id/personal_center_stowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/person_center_smileicon"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:onClick="personcenterOperate"
+            android:src="@mipmap/on_stow_btn" />
+    </RelativeLayout>
+
+</LinearLayout>
