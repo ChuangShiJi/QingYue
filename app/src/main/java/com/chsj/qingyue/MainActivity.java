@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         share = (ImageView) findViewById(R.id.title_share);
 
+
+        //初始化单击事件：
         first.setOnClickListener(this);
         article.setOnClickListener(this);
         question.setOnClickListener(this);
@@ -203,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     Toast.makeText(this, getResources().getString(R.string.now_no_data_to_share), Toast.LENGTH_SHORT).show();
                 }
+
                 break;
         }
     }
