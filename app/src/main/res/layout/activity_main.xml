@@ -21,10 +21,12 @@
 
         <ImageView
             android:id="@+id/title_share"
-            style="@style/allWidthAndHeightWrapcontent"
+            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:scaleType="center"
             android:layout_alignRight="@id/one_title"
             android:layout_centerInParent="true"
-            android:background="@drawable/tilte_one_share" />
+            android:src="@drawable/tilte_one_share" />
 
     </RelativeLayout>
 

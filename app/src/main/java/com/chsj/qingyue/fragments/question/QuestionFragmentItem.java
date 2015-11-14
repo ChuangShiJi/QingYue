@@ -90,7 +90,6 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
         //获取本地广播管理器：
         localBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
 
-
         super.onCreate(savedInstanceState);
     }
 
@@ -102,23 +101,6 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
         anim.start();
         //初始化数据
         initData();
-
-//        //TODO : bug  数据错乱：
-//        Log.i("info","===="+questionEntity.toString());
-
-//        //发送广播
-//        if (questionEntity!=null){
-//            //该页面备选中后   发送广播数据：通过本地广播管理器  来发送广播：
-//            Intent intent = new Intent(Constants.GET_DATA_TO_SHARE);
-//            Bundle bundle = new Bundle();
-//
-//            bundle.putSerializable(Constants.DATA_TO_EXTRA,questionEntity);//将网络数据传入
-//            intent.putExtras(bundle);
-//
-//            localBroadcastManager.sendBroadcast(intent);
-//        }
-
-//        localBroadcastManager.
 
     }
 
@@ -171,6 +153,18 @@ public class QuestionFragmentItem extends Fragment implements View.OnClickListen
                             Gson gson = new Gson();
                             questionEntity = gson.fromJson(quesJsonbject.toString(), token.getType());
 
+                            //        //发送广播
+                            if (questionEntity!=null){
+                                //该页面备选中后   发送广播数据：通过本地广播管理器  来发送广播：
+                                Intent intent = new Intent(Constants.GET_DATA_TO_SHARE);
+                                Bundle bundle = new Bundle();
+
+                                bundle.putSerializable(Constants.DATA_TO_EXTRA,questionEntity);//将网络数据传入
+                                intent.putExtras(bundle);
+
+                                localBroadcastManager.sendBroadcast(intent);
+
+                            }
 
                             //初始化视图：
                             initView();

@@ -101,6 +101,7 @@
             android:name=".PersonalCenterActivity"
             android:label="@string/title_activity_personal_center" >
         </activity>
+		
     </application>
 
 </manifest>

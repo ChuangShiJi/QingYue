@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFragmentMan = getSupportFragmentManager();
 
         isNetWorkAvalable = NetWorkUtils.isConnect(this);
-
-
+		
         first = (RadioButton) findViewById(R.id.main_tab_item_first);
         article = (RadioButton) findViewById(R.id.main_tab_item_article);
         question = (RadioButton) findViewById(R.id.main_tab_item_problem);
@@ -213,7 +212,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         Constants.isExit = false;
-
     }
 
 
